@@ -7,6 +7,7 @@ const nextConfig = {
   output: 'export',
   reactStrictMode: true,
   swcMinify: true,
+  distDir: 'docs',
 
   // Uncoment to add domain whitelist
   // images: {
