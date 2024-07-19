@@ -13,6 +13,7 @@
     "postbuild": "next-sitemap --config next-sitemap.config.js && node ./touch_nojekyll.js"
   },
   "dependencies": {
+    "@rerun-io/web-viewer-react": "0.16.0",
     "clsx": "^2.0.0",
     "lucide-react": "^0.376.0",
     "next": "^14.0.4",
@@ -25,7 +26,6 @@
   "devDependencies": {
     "@commitlint/cli": "^16.3.0",
     "@commitlint/config-conventional": "^16.2.4",
-    "@rerun-io/web-viewer-react": "^0.17.0",
     "@svgr/webpack": "^8.1.0",
     "@tailwindcss/forms": "^0.5.7",
     "@testing-library/jest-dom": "^5.17.0",

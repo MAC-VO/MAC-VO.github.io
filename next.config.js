@@ -27,6 +27,18 @@ const nextConfig = {
       rule.test?.test?.('.svg')
     );
 
+    // Enable WebAssembly
+    config.experiments = {
+      ...config.experiments, // Copy existing experiments if any
+      asyncWebAssembly: true, // Enables async WebAssembly support
+    };
+
+    // Set the correct type for WASM files
+    config.module.rules.push({
+      test: /\.wasm$/,
+      type: "webassembly/async", // This will handle .wasm files as async modules
+    });
+
     config.module.rules.push(
       // Reapply the existing rule, but only for svg imports ending in ?url
       {

@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@rerun-io/web-viewer-react':
+        specifier: 0.16.0
+        version: 0.16.0
       clsx:
         specifier: ^2.0.0
         version: 2.1.1
@@ -39,9 +42,6 @@ importers:
       '@commitlint/config-conventional':
         specifier: ^16.2.4
         version: 16.2.4
-      '@rerun-io/web-viewer-react':
-        specifier: ^0.17.0
-        version: 0.17.0
       '@svgr/webpack':
         specifier: ^8.1.0
         version: 8.1.0
@@ -1010,11 +1010,11 @@ packages:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
 
-  '@rerun-io/web-viewer-react@0.17.0':
-    resolution: {integrity: sha512-4ACnsHTLSVZs91MZnjnt96pdhwRFulucH+1NPIq+7samZrH/CTxuyjysvh/AffSE1VncqdE0NdxhdTFUrZsraQ==}
+  '@rerun-io/web-viewer-react@0.16.0':
+    resolution: {integrity: sha512-WRXWLGDmObtqlIYQiFYk9HRz3BO0jGhXTF3D3tvtsfMLMDz/TSnn5dajxkjg51pAFTCvBR6sqtOQow2i8tuoPQ==}
 
-  '@rerun-io/web-viewer@0.17.0':
-    resolution: {integrity: sha512-pjdPvyTpM1flFoid8wf1rpGnH6+OmqzSzV20FOpc+gxx1w2Qq5GWmvDkRXHj6tbJyVManqQ5dk8OVJKn6P+F+g==}
+  '@rerun-io/web-viewer@0.16.0':
+    resolution: {integrity: sha512-Gx8bV3RR1ZJcJDQm9UNpAgG4qlRlchSslxaoU9WT4sv3B8Q79zy5rbuYKawZkKseDEAqUK+Fy1vxu0drmsGCng==}
 
   '@rushstack/eslint-patch@1.10.2':
     resolution: {integrity: sha512-hw437iINopmQuxWPSUEvqE56NCPsiU8N4AYtfHmJFckclktzK9YQJieD3XkDCDH4OjL+C7zgPUh73R/nrcHrqw==}
@@ -4561,13 +4561,13 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
-  '@rerun-io/web-viewer-react@0.17.0':
+  '@rerun-io/web-viewer-react@0.16.0':
     dependencies:
-      '@rerun-io/web-viewer': 0.17.0
+      '@rerun-io/web-viewer': 0.16.0
       '@types/react': 18.3.3
       react: 18.3.1
 
-  '@rerun-io/web-viewer@0.17.0': {}
+  '@rerun-io/web-viewer@0.16.0': {}
 
   '@rushstack/eslint-patch@1.10.2': {}
 
