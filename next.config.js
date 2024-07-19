@@ -4,6 +4,7 @@ const nextConfig = {
     dirs: ['src'],
   },
 
+  output: 'export',
   reactStrictMode: true,
   swcMinify: true,
 
