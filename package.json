@@ -10,8 +10,7 @@
     "lint:fix": "eslint src --fix && pnpm format",
     "lint:strict": "eslint --max-warnings=0 src",
     "typecheck": "tsc --noEmit --incremental false",
-    "postbuild": "next-sitemap --config next-sitemap.config.js && node ./touch_nojekyll.js",
-    "prepare": "husky install"
+    "postbuild": "next-sitemap --config next-sitemap.config.js && node ./touch_nojekyll.js"
   },
   "dependencies": {
     "clsx": "^2.0.0",
@@ -26,6 +25,7 @@
   "devDependencies": {
     "@commitlint/cli": "^16.3.0",
     "@commitlint/config-conventional": "^16.2.4",
+    "@rerun-io/web-viewer-react": "^0.17.0",
     "@svgr/webpack": "^8.1.0",
     "@tailwindcss/forms": "^0.5.7",
     "@testing-library/jest-dom": "^5.17.0",
@@ -40,8 +40,6 @@
     "eslint-config-prettier": "^8.10.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-unused-imports": "^2.0.0",
-    "husky": "^7.0.4",
-    "jest": "^27.5.1",
     "lint-staged": "^12.5.0",
     "next-router-mock": "^0.9.0",
     "next-sitemap": "^2.5.28",

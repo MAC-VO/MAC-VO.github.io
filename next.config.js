@@ -10,6 +10,10 @@ const nextConfig = {
   distDir: 'docs',
   basePath: "/test-next-js-staticsite",
 
+  images: {
+    unoptimized: true,
+  },
+
   // Uncoment to add domain whitelist
   // images: {
   //   domains: [
