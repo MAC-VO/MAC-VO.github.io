@@ -8,6 +8,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   distDir: 'docs',
+  basePath: "/test-next-js-staticsite",
 
   // Uncoment to add domain whitelist
   // images: {
