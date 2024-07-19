@@ -8,7 +8,6 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   distDir: 'docs',
-  basePath: "/test-next-js-staticsite",
 
   images: {
     unoptimized: true,
