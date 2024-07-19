@@ -15,7 +15,7 @@ const ButtonLinkVariant = [
   'light',
   'dark',
 ] as const;
-const ButtonLinkSize = ['sm', 'base'] as const;
+const ButtonLinkSize = ['sm', 'base', 'large'] as const;
 
 type ButtonLinkProps = {
   isDarkBg?: boolean;
@@ -57,6 +57,7 @@ const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
           [
             size === 'base' && ['px-3 py-1.5', 'text-sm md:text-base'],
             size === 'sm' && ['px-2 py-1', 'text-xs md:text-sm'],
+            size === 'large' && ['px-4 py-2', 'text-lg md:text-xl'],
           ],
           //#endregion  //*======== Size ===========
           //#region  //*=========== Variants ===========
@@ -73,14 +74,14 @@ const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
               'border-primary-500 border',
               'hover:bg-primary-50 active:bg-primary-100 disabled:bg-primary-100',
               isDarkBg &&
-                'hover:bg-gray-900 active:bg-gray-800 disabled:bg-gray-800',
+              'hover:bg-gray-900 active:bg-gray-800 disabled:bg-gray-800',
             ],
             variant === 'ghost' && [
               'text-primary-500',
               'shadow-none',
               'hover:bg-primary-50 active:bg-primary-100 disabled:bg-primary-100',
               isDarkBg &&
-                'hover:bg-gray-900 active:bg-gray-800 disabled:bg-gray-800',
+              'hover:bg-gray-900 active:bg-gray-800 disabled:bg-gray-800',
             ],
             variant === 'light' && [
               'bg-white text-gray-700',
@@ -104,6 +105,7 @@ const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
             className={cn([
               size === 'base' && 'mr-1',
               size === 'sm' && 'mr-1.5',
+              size === 'large' && 'mr-2',
             ])}
           >
             <LeftIcon
@@ -112,6 +114,7 @@ const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
                 [
                   size === 'base' && 'md:text-md text-md',
                   size === 'sm' && 'md:text-md text-sm',
+                  size === 'large' && 'md:text-lg text-lg',
                 ],
                 classNames?.leftIcon
               )}
@@ -124,6 +127,7 @@ const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
             className={cn([
               size === 'base' && 'ml-1',
               size === 'sm' && 'ml-1.5',
+              size === 'large' && 'ml-2',
             ])}
           >
             <RightIcon
@@ -132,6 +136,7 @@ const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
                 [
                   size === 'base' && 'text-md md:text-md',
                   size === 'sm' && 'md:text-md text-sm',
+                  size === 'large' && 'md:text-lg text-lg',
                 ],
                 classNames?.rightIcon
               )}

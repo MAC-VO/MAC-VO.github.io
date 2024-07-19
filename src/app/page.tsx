@@ -1,12 +1,12 @@
 'use client';
 
-import WebViewer from '@rerun-io/web-viewer-react';
 import clsx from 'clsx';
 import Head from 'next/head';
 import * as React from 'react';
 import '@/lib/env';
 
 import ButtonLink from '@/components/links/ButtonLink';
+import RerunViewerBanner from '@/components/RerunViewer/RerunViewer';
 
 /**
  * SVGR Support
@@ -21,7 +21,7 @@ import ButtonLink from '@/components/links/ButtonLink';
 // to customize the default configuration.
 
 export default function HomePage() {
-  const [mode, setMode] = React.useState<'dark' | 'light'>('light');
+  const [mode, setMode] = React.useState<'dark' | 'light'>('dark');
   const changeMode = () => mode === "dark" ? setMode("light") : setMode("dark");
   const textColor = mode === 'dark' ? 'text-gray-300' : 'text-gray-600';
   const bgColor = mode === 'dark' ? 'bg-dark' : 'bg-white';
@@ -34,7 +34,7 @@ export default function HomePage() {
         <title>Hi</title>
       </Head>
       <section className={clsx(bgColor, textColor)}>
-        <ButtonLink className='mt-6 absolute top-1 right-2 rounded-md' href='' variant={mode} onClick={changeMode}>
+        <ButtonLink className='mt-6 absolute top-1 right-2 rounded-md' href='' variant={mode === "dark" ? "light" : "dark"} onClick={changeMode}>
           {buttonText}
         </ButtonLink>
         <div className='layout relative flex min-h-screen flex-col items-center justify-center py-12 text-center'>
@@ -45,10 +45,10 @@ export default function HomePage() {
             <span className='text-primary-500'>V</span>isual {" "}
             <span className='text-primary-500'>O</span>dometry</h1>
           <div className="container flex flex-row items-center space-x-2 justify-center">
-            <ButtonLink className='mt-6' href='/components' variant='light'>
+            <ButtonLink className='mt-6' href='/components' variant={mode} size='large'>
               GitHub Repo
             </ButtonLink>
-            <ButtonLink className='mt-6' href='/components' variant='light'>
+            <ButtonLink className='mt-6' href='/components' variant={mode} size='large'>
               arXiv Page
             </ButtonLink>
           </div>
@@ -57,18 +57,16 @@ export default function HomePage() {
 
       <section className={clsx(secondaryBgColor, textColor)}>
         <div className='layout py-12'>
-          <p>Something here</p>
-
-          <div className='p-2 rounded-md border-primary-400 border-spacing-1 border-2'>
-            <p className='p-2 text-gray-400 text-center'>Some Rerun Visualization Here</p>
-            {
-              typeof (window) !== 'undefined' ?
-                <WebViewer rrd="" width='100%' height='80vh' hide_welcome_screen />
-                : null
-            }
-          </div>
+          <p>Something here
+            <RerunViewerBanner
+              title="Open Rerun"
+              rrd_file="https://mac-vo.github.io/rerun/tensor_map_vis.rrd"
+            />
+          </p>
         </div>
       </section>
+
+
     </main >
   );
 }

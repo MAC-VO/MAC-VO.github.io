@@ -13,7 +13,8 @@
     "postbuild": "next-sitemap --config next-sitemap.config.js && node ./touch_nojekyll.js"
   },
   "dependencies": {
-    "@rerun-io/web-viewer-react": "0.16.0",
+    "@headlessui/react": "^2.1.2",
+    "@rerun-io/web-viewer-react": "0.17",
     "clsx": "^2.0.0",
     "lucide-react": "^0.376.0",
     "next": "^14.0.4",
