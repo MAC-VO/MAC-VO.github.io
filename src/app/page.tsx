@@ -1,10 +1,10 @@
 'use client';
 
 import clsx from 'clsx';
-import Head from 'next/head';
-import * as React from 'react';
+import React from 'react';
 import '@/lib/env';
 
+import ArrowLink from '@/components/links/ArrowLink';
 import ButtonLink from '@/components/links/ButtonLink';
 import RerunViewerBanner from '@/components/RerunViewer/RerunViewer';
 
@@ -23,50 +23,89 @@ import RerunViewerBanner from '@/components/RerunViewer/RerunViewer';
 export default function HomePage() {
   const [mode, setMode] = React.useState<'dark' | 'light'>('dark');
   const changeMode = () => mode === "dark" ? setMode("light") : setMode("dark");
-  const textColor = mode === 'dark' ? 'text-gray-300' : 'text-gray-600';
+  const textColor = mode === 'dark' ? 'text-gray-300' : 'text-gray-700';
   const bgColor = mode === 'dark' ? 'bg-dark' : 'bg-white';
-  const secondaryBgColor = mode === 'dark' ? 'bg-gray-800' : 'bg-gray-100';
+  const maskColor = mode === 'dark' ? 'bg-dark/70' : 'bg-white/70';
+  const secondaryBgColor = mode === 'dark' ? 'bg-neutral-700' : 'bg-gray-100';
   const buttonText = mode === "dark" ? "☀ Light Mode" : "🌙 Dark Mode";
+  const hlTextColor = mode === "dark" ? "text-primary-500" : "text-primary-600";
 
   return (
     <main>
-      <Head>
-        <title>Hi</title>
-      </Head>
-      <section className={clsx(bgColor, textColor)}>
-        <ButtonLink className='mt-6 absolute top-1 right-2 rounded-md' href='' variant={mode === "dark" ? "light" : "dark"} onClick={changeMode}>
+      <section className={
+        clsx(bgColor, textColor,
+          "relative flex items-center justify-center h-screen overflow-hidden"
+        )
+      }>
+        <ButtonLink className={clsx('mt-6 absolute top-1 right-2 rounded-md z-20', textColor)} href='' variant="outline" isDarkBg={mode === "dark"} onClick={changeMode}>
           {buttonText}
         </ButtonLink>
-        <div className='layout relative flex min-h-screen flex-col items-center justify-center py-12 text-center'>
-          <h1 className='mt-4'>MAC-VO: {" "}
-            <span className='text-primary-500'>M</span>etrics-<span className='text-primary-500'>A</span>ware {" "}
-            <span className='text-primary-500'>C</span>ovariance {" "}
+        <div className='layout z-20 relative flex min-h-screen flex-col items-center justify-center py-12 text-center'>
+          <h1 className='mt-4 text-5xl'>MAC-VO: {" "}
+            <span className={hlTextColor}>M</span>etrics-<span className={hlTextColor}>A</span>ware {" "}
+            <span className={hlTextColor}>C</span>ovariance {" "}
             for Learning-based Stereo{" "}
-            <span className='text-primary-500'>V</span>isual {" "}
-            <span className='text-primary-500'>O</span>dometry</h1>
-          <div className="container flex flex-row items-center space-x-2 justify-center">
-            <ButtonLink className='mt-6' href='/components' variant={mode} size='large'>
+            <span className={hlTextColor}>V</span>isual {" "}
+            <span className={hlTextColor}>O</span>dometry</h1>
+          <div className='container py-6'>
+            <span className='text-lg font-semibold'>
+              Yuheng Qiu*, Yutian Chen*, Zihao Zhang, Wenshan Wang, Sebastian Scherer<br />
+            </span>
+            <span className='text-lg'>
+              Carnegie Mellon University
+            </span>
+          </div>
+          <div className="container flex flex-row items-center space-x-8 justify-center text-lg">
+            <ArrowLink className='mt-6' href='/components' variant={mode} size='large'>
               GitHub Repo
-            </ButtonLink>
-            <ButtonLink className='mt-6' href='/components' variant={mode} size='large'>
+            </ArrowLink>
+            <ArrowLink className='mt-6' href='/components' variant={mode} size='large'>
               arXiv Page
-            </ButtonLink>
+            </ArrowLink>
           </div>
         </div>
+        <div className={clsx("absolute w-auto min-w-full min-h-full max-w-none z-10 backdrop-blur-sm", maskColor)} />
+        <div className="absolute bottom-4 left-4 z-20">
+          <p>* Equal Contribution.</p>
+        </div>
+        <video
+          autoPlay
+          loop
+          muted
+          className="absolute w-auto min-w-full min-h-full max-w-none z-0"
+        >
+          <source
+            src="/video/SLAM_on_Moon_with_cov.mp4"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
       </section>
-
       <section className={clsx(secondaryBgColor, textColor)}>
         <div className='layout py-12'>
-          <p>Something here
+          <h3 className='text-center pb-4'>Abstract</h3>
+          <p className='text-pretty'>
+            We propose MAC-VO, a novel learning-based stereo VO that leverages the learned metrics-aware matching uncertainty for dual purposes: selecting keypoint and weighing the residual in pose graph optimization.
+            Compared to traditional geometric methods prioritizing texture-affluent features like edges, our keypoint selector employs the learned uncertainty to filter out the low-quality features based on global inconsistency.
+            In contrast to the learning-based algorithms that rely on the scale-agnostic weight matrix, we design a metrics-aware spatial covariance model to capture the spatial information during keypoint registration.
+            Integrating this covariance model into pose graph optimization enhances the robustness and reliability of pose estimation, particularly in challenging environments with varying illumination, feature density, and motion patterns.
+            On public benchmark datasets, MAC-VO outperforms existing VO algorithms, even some SLAM algorithms in challenging environments.
+            The covariance-aware framework also provides valuable information about the reliability of the estimated poses, which can benefit decision-making for autonomous systems.
+          </p>
+        </div>
+      </section>
+      <section className={clsx(bgColor, textColor)}>
+        <div className='layout py-12'>
+          <p>
+            Something here {" "}
             <RerunViewerBanner
-              title="Open Rerun"
+              title="3D Map Visualization for TartanAirv2, Trajectory E002 "
               rrd_file="https://mac-vo.github.io/rerun/tensor_map_vis.rrd"
+              mode={mode}
             />
           </p>
         </div>
       </section>
-
-
     </main >
   );
 }
