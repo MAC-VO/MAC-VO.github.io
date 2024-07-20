@@ -14,13 +14,13 @@ type PopupWindowProps = {
 export default function PopupWindow({ onClose, title, children = null, subtitle = null, download = null }: PopupWindowProps) {
 
   return (
-    <Dialog open={true} onClose={() => onClose()} className="relative z-10">
+    <Dialog open={true} onClose={() => onClose()} className="relative z-30">
       <DialogBackdrop
         transition
         className="fixed inset-0 bg-gray-500 bg-opacity-25 transition-opacity data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in"
       />
 
-      <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+      <div className="fixed inset-0 w-screen overflow-y-auto">
         <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
           <DialogPanel
             transition
