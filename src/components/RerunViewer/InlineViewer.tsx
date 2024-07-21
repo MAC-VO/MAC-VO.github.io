@@ -23,7 +23,7 @@ const RerunViewerInline = ({ title, rrd_file, width = '100%', height }: RerunVie
     } else {
       return (
         <PopupWindow onClose={() => setExpanded(false)} title={title} subtitle={"Data: " + rrd_file} download={rrd_file}>
-          <WebViewer rrd={rrd_file} width={width} height="85vh" />
+          <WebViewer rrd={rrd_file} width="100%" height="85vh" />
         </PopupWindow>
       );
     }
