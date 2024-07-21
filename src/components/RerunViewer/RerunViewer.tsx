@@ -9,11 +9,10 @@ import PopupWindow from "@/components/RerunViewer/Popup";
 type RerunViewerBannerProps = {
   title: string;
   rrd_file: string;
-  mode: 'dark' | 'light';
   width?: string;
 }
 
-const RerunViewerBanner = ({ title, rrd_file, mode, width = '100%' }: RerunViewerBannerProps) => {
+const RerunViewerPopup = ({ title, rrd_file, width = '100%' }: RerunViewerBannerProps) => {
   const [expanded, setExpanded] = React.useState<boolean>(false);
 
   if (expanded) {
@@ -35,4 +34,4 @@ const RerunViewerBanner = ({ title, rrd_file, mode, width = '100%' }: RerunViewe
   }
 }
 
-export default RerunViewerBanner;
+export default RerunViewerPopup;
