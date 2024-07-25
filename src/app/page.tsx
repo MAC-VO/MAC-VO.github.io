@@ -8,9 +8,9 @@ import '@/lib/env';
 import Figure from '@/components/Figure';
 import KatexSpan from '@/components/KaTeX';
 import ArrowLink from '@/components/links/ArrowLink';
-import ButtonLink from '@/components/links/ButtonLink';
 import RerunViewerInline from '@/components/RerunViewer/InlineViewer';
 import RerunViewerPopup from '@/components/RerunViewer/RerunViewer';
+import ExternalSwitch from '@/components/Switch';
 
 /**
  * SVGR Support
@@ -31,7 +31,6 @@ export default function HomePage() {
   const bgColor = mode === 'dark' ? 'bg-dark' : 'bg-white';
   const maskColor = mode === 'dark' ? 'bg-dark/70' : 'bg-white/70';
   const secondaryBgColor = mode === 'dark' ? 'bg-neutral-700' : 'bg-gray-100';
-  const buttonText = mode === "dark" ? "☀ Light Mode" : "🌙 Dark Mode";
   const hlTextColor = mode === "dark" ? "text-primary-500" : "text-primary-600";
 
   return (
@@ -41,9 +40,10 @@ export default function HomePage() {
           "relative flex items-center justify-center h-screen overflow-hidden"
         )
       }>
-        <ButtonLink className={clsx('mt-6 absolute top-1 right-2 rounded-md z-20', textColor)} href='' variant="outline" isDarkBg={mode === "dark"} onClick={changeMode}>
-          {buttonText}
-        </ButtonLink>
+        <div className='absolute top-6 right-4 z-20'>
+          <span>Light Mode </span>
+          <ExternalSwitch state={mode === "light"} switch_state={changeMode} />
+        </div>
         <div className='layout z-20 relative flex min-h-screen flex-col items-center justify-center py-12 text-center'>
           <h1 className='mt-4 text-5xl'>MAC-VO: {" "}
             <span className={hlTextColor}>M</span>etrics-<span className={hlTextColor}>A</span>ware {" "}
@@ -112,13 +112,29 @@ export default function HomePage() {
           />
 
           <h3 className='pt-4'>Matching Network</h3>
+          <Figure
+            img_src='/images/FlowformerCov.png'
+            caption={
+              <span>
+                <span className='font-semibold'>Left:</span>
+                Architecture of the uncertainty-aware matching network. We employ the motion aggregator and the iterative update {" "}
+                structure to help the covariance module learn the relationship between the covariance estimation and global motion. {" "}
+                <span className='font-semibold'>Right:</span> In each iteration, the model captures the inconsistency between the motions. {" "}
+                For the <KatexSpan text="$\Delta \sigma$" />, the <span className='text-red-400'>red</span> means increasing the uncertainty, and {" "}
+                <span className='text-blue-400'>blue</span> means decreasing the uncertainty.
+              </span>
+            }
+            isDark={mode === "dark"}
+            idx={2}
+          />
+
 
           <h3 className='pt-4'>Uncertainty Aware Keypoint Selector</h3>
           <Figure
             img_src="/images/KPSelector.png"
             caption="We include three filters: Non-minimum Suppression (NMS) filter, a geometric filter, and an uncertainty-based filter. In the KITTI odometry dataset, the uncertainty filter can capture the inconsistency and implicitly filter out the unreliable features on the moving objects in the scene. "
             isDark={mode === "dark"}
-            idx={2}
+            idx={3}
           />
 
           <h3 className='pt-4'>Metrics-Aware Spatial Covariance</h3>
@@ -132,7 +148,7 @@ export default function HomePage() {
               </span>
             }
             isDark={mode === "dark"}
-            idx={3}
+            idx={4}
           />
         </div>
       </section>
@@ -156,18 +172,21 @@ export default function HomePage() {
             <RerunViewerInline
               title="EuRoC V102"
               rrd_file="https://mac-vo.github.io/rerun/EuRoC_V102_Map.rrd"
+              fallback_video='/video/Rotate_EuRoC_V102.mp4'
               height='500px'
               width='45vw'
             />
             <RerunViewerInline
-              title="TartanAir Abandoned Factory 001"
+              title="TartanAir Abandon Factory 1"
               rrd_file="https://mac-vo.github.io/rerun/TartanAir_AbandonFac_001.rrd"
+              fallback_video='/video/Rotate_TartanAir1.mp4'
               height='500px'
               width='45vw'
             />
             <RerunViewerInline
               title="KITTI 07"
               rrd_file="https://mac-vo.github.io/rerun/KITTI_07_Map.rrd"
+              fallback_video='/video/Rotate_KITTI07.mp4'
               height='500px'
               width='45vw'
             />

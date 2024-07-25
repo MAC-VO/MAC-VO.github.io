@@ -5,7 +5,7 @@ type FigureProp = { img_src: string; caption: React.ReactNode; isDark: boolean; 
 
 const Figure = ({ img_src, caption, isDark, idx }: FigureProp) => {
   const caption_clr = isDark ? 'text-gray-400' : 'text-gray-600';
-  const img_style = isDark ? 'w-full h-auto rounded-md bg-neutral-700 p-2' : 'w-full h-auto rounded-md p-2';
+  const img_style = isDark ? 'w-full h-auto rounded-md bg-neutral-400 p-2' : 'w-full h-auto rounded-md p-2';
 
   return (
     <figure className='flex flex-col items-center justify-center'>
