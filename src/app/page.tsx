@@ -1,9 +1,10 @@
 'use client';
 
 import clsx from 'clsx';
-import { ArrowLeftIcon, ArrowRightIcon, MouseIcon } from 'lucide-react';
 import React from 'react';
 import '@/lib/env';
+
+import useDarkMode from '@/lib/storage';
 
 import Figure from '@/components/Figure';
 import KatexSpan from '@/components/KaTeX';
@@ -12,21 +13,9 @@ import RerunViewerInline from '@/components/RerunViewer/InlineViewer';
 import RerunViewerPopup from '@/components/RerunViewer/RerunViewer';
 import ExternalSwitch from '@/components/Switch';
 
-/**
- * SVGR Support
- * Caveat: No React Props Type.
- *
- * You can override the next-env if the type is important to you
- * @see https://stackoverflow.com/questions/68103844/how-to-override-next-js-svg-module-declaration
- */
-
-// !STARTERCONF -> Select !STARTERCONF and CMD + SHIFT + F
-// Before you begin editing, follow all comments with `STARTERCONF`,
-// to customize the default configuration.
 
 export default function HomePage() {
-  const [mode, setMode] = React.useState<'dark' | 'light'>('dark');
-  const changeMode = () => mode === "dark" ? setMode("light") : setMode("dark");
+  const [mode, toggleMode] = useDarkMode();
   const textColor = mode === 'dark' ? 'text-gray-300' : 'text-gray-700';
   const bgColor = mode === 'dark' ? 'bg-dark' : 'bg-white';
   const maskColor = mode === 'dark' ? 'bg-dark/70' : 'bg-white/70';
@@ -42,7 +31,7 @@ export default function HomePage() {
       }>
         <div className='absolute top-6 right-4 z-20'>
           <span>Light Mode </span>
-          <ExternalSwitch state={mode === "light"} switch_state={changeMode} />
+          <ExternalSwitch state={mode === "light"} switch_state={toggleMode} />
         </div>
         <div className='layout z-20 relative flex min-h-screen flex-col items-center justify-center py-12 text-center'>
           <h1 className='mt-4 text-5xl'>MAC-VO: {" "}
@@ -65,6 +54,9 @@ export default function HomePage() {
             </ArrowLink>
             <ArrowLink className='mt-6' href='/components' variant={mode} size='large'>
               arXiv Page
+            </ArrowLink>
+            <ArrowLink className='mt-6' href='/content/Docs' variant={mode} size='large'>
+              Documentation
             </ArrowLink>
           </div>
         </div>
@@ -111,12 +103,12 @@ export default function HomePage() {
             idx={1}
           />
 
-          <h3 className='pt-4'>Matching Network</h3>
+          {/* <h3 className='pt-4'>Matching Network</h3>
           <Figure
             img_src='/images/FlowformerCov.png'
             caption={
               <span>
-                <span className='font-semibold'>Left:</span>
+                <span className='font-semibold'>Left: </span>
                 Architecture of the uncertainty-aware matching network. We employ the motion aggregator and the iterative update {" "}
                 structure to help the covariance module learn the relationship between the covariance estimation and global motion. {" "}
                 <span className='font-semibold'>Right:</span> In each iteration, the model captures the inconsistency between the motions. {" "}
@@ -126,16 +118,16 @@ export default function HomePage() {
             }
             isDark={mode === "dark"}
             idx={2}
-          />
+          /> */}
 
 
-          <h3 className='pt-4'>Uncertainty Aware Keypoint Selector</h3>
+          {/* <h3 className='pt-4'>Uncertainty Aware Keypoint Selector</h3>
           <Figure
             img_src="/images/KPSelector.png"
             caption="We include three filters: Non-minimum Suppression (NMS) filter, a geometric filter, and an uncertainty-based filter. In the KITTI odometry dataset, the uncertainty filter can capture the inconsistency and implicitly filter out the unreliable features on the moving objects in the scene. "
             isDark={mode === "dark"}
             idx={3}
-          />
+          /> */}
 
           <h3 className='pt-4'>Metrics-Aware Spatial Covariance</h3>
           <Figure
@@ -148,7 +140,7 @@ export default function HomePage() {
               </span>
             }
             isDark={mode === "dark"}
-            idx={4}
+            idx={2}
           />
         </div>
       </section>
@@ -161,7 +153,7 @@ export default function HomePage() {
             rrd_file="https://mac-vo.github.io/rerun/tensor_map_vis.rrd"
           />
         </div>
-        <div className='mx-8'>
+        {/* <div className='mx-8'>
           <h3 className='pb-4 text-center'>Qualitative Results</h3>
           <div className='flex items-center justify-center gap-8 pb-4'>
             <ArrowLeftIcon size={24} />
@@ -191,10 +183,14 @@ export default function HomePage() {
               width='45vw'
             />
           </div>
-        </div>
+        </div> */}
         <div className='layout py-12'>
-          <h3 className='pb-4'>Quantitative Results</h3>
-          Some content some content some content
+          <RerunViewerInline
+            title="TartanAir Abandon Factory 1"
+            rrd_file="https://mac-vo.github.io/rerun/TartanAir_AbandonFac_001.rrd"
+            fallback_video='/video/Rotate_TartanAir1.mp4'
+            height='50vh'
+          />
         </div>
       </section>
     </main >

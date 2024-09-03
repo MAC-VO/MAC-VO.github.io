@@ -18,6 +18,7 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
     'react/no-unescaped-entities': 'off',
+    '@next/next/no-img-element': 'off',
 
     'react/display-name': 'off',
     'react/jsx-curly-brace-presence': [

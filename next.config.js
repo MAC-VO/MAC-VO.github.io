@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/
+});
+
 const nextConfig = {
   eslint: {
     dirs: ['src'],
@@ -8,17 +12,14 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   distDir: 'docs',
+  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
 
   images: {
     unoptimized: true,
+    domains: [
+      // 'res.cloudinary.com',
+    ],
   },
-
-  // Uncoment to add domain whitelist
-  // images: {
-  //   domains: [
-  //     'res.cloudinary.com',
-  //   ],
-  // },
 
   webpack(config) {
     // Grab the existing rule that handles SVG imports
@@ -53,4 +54,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = withMDX(nextConfig);

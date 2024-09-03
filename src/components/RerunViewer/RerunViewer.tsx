@@ -4,7 +4,7 @@ import WebViewer from '@rerun-io/web-viewer-react';
 import { VideoIcon } from "lucide-react";
 import React from "react";
 
-import UnderlineLink from '@/components/links/UnderlineLink';
+import IconButton from '@/components/buttons/IconButton';
 import PopupWindow from "@/components/RerunViewer/Popup";
 
 
@@ -25,7 +25,8 @@ const RerunViewerPopup = ({ title, rrd_file, width = '100%' }: RerunViewerBanner
     );
   } else {
     return (
-      <UnderlineLink className='text-primary-500' href="" onClick={() => setExpanded(true)}>{title} &nbsp; <VideoIcon /></UnderlineLink>
+      // <UnderlineLink className='text-primary-500' href="" onClick={() => setExpanded(true)}>{title} &nbsp; <VideoIcon /></UnderlineLink>
+      <IconButton icon={VideoIcon} content={title} onClick={() => setExpanded(true)} />
     );
   }
 }
