@@ -5,6 +5,7 @@ import { VideoIcon } from "lucide-react";
 import React from "react";
 
 import IconButton from '@/components/buttons/IconButton';
+import NoSSR from '@/components/NoSSR';
 import PopupWindow from "@/components/RerunViewer/Popup";
 
 
@@ -19,9 +20,11 @@ const RerunViewerPopup = ({ title, rrd_file, width = '100%' }: RerunViewerBanner
 
   if (expanded) {
     return (
-      <PopupWindow onClose={() => setExpanded(false)} title={title} subtitle={"Data: " + rrd_file} download={rrd_file}>
-        <WebViewer rrd={rrd_file} width={width} height="85vh" />
-      </PopupWindow>
+      <NoSSR>
+        <PopupWindow onClose={() => setExpanded(false)} title={title} subtitle={"Data: " + rrd_file} download={rrd_file}>
+          <WebViewer rrd={rrd_file} width={width} height="85vh" />
+        </PopupWindow>
+      </NoSSR>
     );
   } else {
     return (

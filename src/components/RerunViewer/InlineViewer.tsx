@@ -4,6 +4,7 @@ import WebViewer from '@rerun-io/web-viewer-react';
 import { DownloadIcon, MaximizeIcon } from 'lucide-react';
 import React from "react";
 
+import NoSSR from '@/components/NoSSR';
 import MobileFallback from '@/components/RerunViewer/MobileFallback';
 import PopupWindow from "@/components/RerunViewer/Popup";
 
@@ -60,12 +61,11 @@ const RerunViewerInline = ({ title, rrd_file, width = '100%', height, fallback_v
             </button>
           </div>
         </div>
-        {
-          typeof (window) === 'undefined' ? null :
-            <MobileFallback fallback={fallback_elem}>
-              <WebViewer rrd={rrd_file} width={width} height={height} />
-            </MobileFallback>
-        }
+        <NoSSR>
+          <MobileFallback fallback={fallback_elem}>
+            <WebViewer rrd={rrd_file} width={width} height={height} />
+          </MobileFallback>
+        </NoSSR>
       </div>
     );
   }
