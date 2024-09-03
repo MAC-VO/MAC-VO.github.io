@@ -29,7 +29,7 @@ const RerunViewerPopup = ({ title, rrd_file, width = '100%' }: RerunViewerBanner
   } else {
     return (
       // <UnderlineLink className='text-primary-500' href="" onClick={() => setExpanded(true)}>{title} &nbsp; <VideoIcon /></UnderlineLink>
-      <IconButton icon={VideoIcon} content={title} onClick={() => setExpanded(true)} />
+      <IconButton icon={VideoIcon} content={title} onClick={() => setExpanded(true)} type='button' variant='outline' />
     );
   }
 }

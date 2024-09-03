@@ -82,13 +82,13 @@ class IOptimizer(ABC, Generic[T_GraphInput, T_Context, T_GraphOutput], SubclassR
 
 Below we demonstrate how the internal interfaces mentioned above are orchestrated in sequential and parallel optimization mode.
 
-**Parallel Mode**
+* **Parallel Mode**
 
-![ParallelMode](https://github.com/user-attachments/assets/98348cb8-7a22-44f5-b160-4568fe196f50)
+![ParallelMode](/images/Optimizer_Parallel.png)
 
-**Sequential Mode**
+* **Sequential Mode**
 
-![SequentialMode](https://github.com/user-attachments/assets/b297a5db-f348-46b0-8213-fd60b5c4a006)
+![SequentialMode](/images/Optimizer_Sequential.png)
 
 ## The `ITransferable` Interface
 

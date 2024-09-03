@@ -147,10 +147,33 @@ export default function HomePage() {
 
       <section className={clsx(secondaryBgColor, textColor)}>
         <div className='layout py-12'>
-          <h2 className='pb-4'>Experiments</h2>
-          Some content some content some content <RerunViewerPopup
-            title="3D Map Visualization for TartanAirv2, Trajectory E002 "
+          <h2 className='pb-4'>Qualitative Results</h2>
+          <div className='layout py-4'>
+            <RerunViewerInline
+              title="TartanAir Abandon Factory 1"
+              rrd_file="https://mac-vo.github.io/rerun/TartanAir_AbandonFac_001.rrd"
+              fallback_video='/video/Rotate_TartanAir1.mp4'
+              height='50vh'
+            />
+          </div>
+
+          <hr />
+          <h4 className='py-4'>TartnaAir v2 Dataset</h4>
+          <RerunViewerPopup
+            title="Map Visualization for TartanAirv2, Trajectory E002 "
             rrd_file="https://mac-vo.github.io/rerun/tensor_map_vis.rrd"
+          />
+
+          <h4 className='py-4'>EuRoC Dataset</h4>
+          <RerunViewerPopup
+            title="Map Visualization for EuRoC V102"
+            rrd_file="https://mac-vo.github.io/rerun/EuRoC_V102_Map.rrd"
+          />
+
+          <h4 className='py-4'>KITTI Dataset</h4>
+          <RerunViewerPopup
+            title="Map Visualization for KITTI Odometry 07"
+            rrd_file="https://mac-vo.github.io/rerun/KITTI_07_Map.rrd"
           />
         </div>
         {/* <div className='mx-8'>
@@ -184,14 +207,6 @@ export default function HomePage() {
             />
           </div>
         </div> */}
-        <div className='layout py-12'>
-          <RerunViewerInline
-            title="TartanAir Abandon Factory 1"
-            rrd_file="https://mac-vo.github.io/rerun/TartanAir_AbandonFac_001.rrd"
-            fallback_video='/video/Rotate_TartanAir1.mp4'
-            height='50vh'
-          />
-        </div>
       </section>
     </main >
   );

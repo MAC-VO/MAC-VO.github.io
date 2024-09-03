@@ -12,6 +12,7 @@ import path from 'path';
 import React from 'react';
 import Markdown from 'react-markdown';
 import rehypeHighlight from 'rehype-highlight'
+import remarkGfm from 'remark-gfm';
 
 import '@/styles/globals.css';
 import '@/styles/colors.css';
@@ -102,7 +103,7 @@ function LightPage({
             components={{
               'a': (props) => { return <UnderlineLink href={props.href as string}>{props.children}</UnderlineLink> },
               'li': (props) => { return <li className='list-decimal pb-2 ml-4'>{props.children}</li> },
-              'pre': (props) => { return <pre className='bg-gray-50 p-4 rounded-lg'>{props.children}</pre> },
+              'pre': (props) => { return <pre className='bg-gray-50 p-4 rounded-lg overflow-x-auto'>{props.children}</pre> },
               "h2": (props) => { return <h2 className='py-4'>{props.children}</h2> },
               "h3": (props) => { return <h3 className='py-4'>{props.children}</h3> }
             }}
@@ -154,11 +155,13 @@ function DarkPage({
             components={{
               'a': (props) => { return <UnderlineLink href={props.href as string}>{props.children}</UnderlineLink> },
               'li': (props) => { return <li className='list-decimal pb-2 ml-4'>{props.children}</li> },
-              'pre': (props) => { return <pre className='bg-gray-50 p-4 rounded-lg invert'>{props.children}</pre> },
+              'pre': (props) => { return <pre className='bg-gray-50 p-4 rounded-lg invert overflow-x-auto'>{props.children}</pre> },
               "h2": (props) => { return <h2 className='py-4'>{props.children}</h2> },
-              "h3": (props) => { return <h3 className='py-4'>{props.children}</h3> }
+              "h3": (props) => { return <h3 className='py-4'>{props.children}</h3> },
+              "table": (props) => { return <table className='my-4'>{props.children}</table> }
             }}
-            rehypePlugins={[rehypeHighlight]}>
+            rehypePlugins={[rehypeHighlight]}
+            remarkPlugins={[remarkGfm]}>
             {post.content}
           </Markdown>
         </div>
