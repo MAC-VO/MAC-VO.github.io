@@ -15,7 +15,9 @@ const Figure = ({ img_src, caption, isDark, idx }: FigureProp) => {
 
   return (
     <figure className='flex flex-col items-center justify-center'>
-      <img src={img_src} className={clsx('w-full h-auto rounded-md p-2 transition', invert_prop)} />
+      <img src={img_src} className={clsx('w-full h-auto rounded-md p-2 transition', invert_prop,
+        invert_prop === 'invert' ? 'bg-gray-200' : ''
+      )} />
       {
         isDark ?
           <div className={clsx(caption_clr, "text-sm", invert_prop === 'invert' ? 'text-primary-500' : '')}>
