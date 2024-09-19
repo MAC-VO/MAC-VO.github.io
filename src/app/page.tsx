@@ -52,8 +52,11 @@ export default function HomePage() {
             <ArrowLink className='mt-6' href='/components' variant={mode} size='large'>
               GitHub Repo
             </ArrowLink>
-            <ArrowLink className='mt-6' href='/components' variant={mode} size='large'>
+            <ArrowLink className='mt-6' href='https://arxiv.org/abs/2409.09479' variant={mode} size='large'>
               arXiv Page
+            </ArrowLink>
+            <ArrowLink className='mt-6' href='/components' variant={mode} size='large'>
+              Video
             </ArrowLink>
             <ArrowLink className='mt-6' href='/content/Docs' variant={mode} size='large'>
               Documentation
