@@ -12,6 +12,7 @@ import path from 'path';
 import React from 'react';
 import Markdown from 'react-markdown';
 import rehypeHighlight from 'rehype-highlight'
+import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
 
 import '@/styles/globals.css';
@@ -79,27 +80,28 @@ function LightPage({
           <div className='layout z-20 relative flex min-h-64 flex-col items-center justify-center py-12 text-center'>
             <h1 className='font-light text-4xl'>{post.title}</h1>
           </div>
-          <Markdown remarkRehypeOptions={{
-            'allowDangerousHtml': true,
-            'handlers': {
-              'emphasis': (state, node, _) => {
-                return {
-                  type: 'element',
-                  tagName: 'i',
-                  properties: { "class": "italic underline-offset-1 decoration-solid decoration-primary-500 underline" },
-                  children: state.all(node)
-                };
-              },
-              'strong': (state, node, _) => {
-                return {
-                  type: 'element',
-                  tagName: 'b',
-                  properties: { "class": "font-semibold text-primary-500" },
-                  children: state.all(node)
+          <Markdown
+            remarkRehypeOptions={{
+              'allowDangerousHtml': true,
+              'handlers': {
+                'emphasis': (state, node, _) => {
+                  return {
+                    type: 'element',
+                    tagName: 'i',
+                    properties: { "class": "italic underline-offset-1 decoration-solid decoration-primary-500 underline" },
+                    children: state.all(node)
+                  };
+                },
+                'strong': (state, node, _) => {
+                  return {
+                    type: 'element',
+                    tagName: 'b',
+                    properties: { "class": "font-semibold text-primary-500" },
+                    children: state.all(node)
+                  }
                 }
               }
-            }
-          }}
+            }}
             components={{
               'a': (props) => { return <UnderlineLink href={props.href as string}>{props.children}</UnderlineLink> },
               'li': (props) => { return <li className='list-decimal pb-2 ml-4'>{props.children}</li> },
@@ -107,7 +109,7 @@ function LightPage({
               "h2": (props) => { return <h2 className='py-4'>{props.children}</h2> },
               "h3": (props) => { return <h3 className='py-4'>{props.children}</h3> }
             }}
-            rehypePlugins={[rehypeHighlight]}>
+            rehypePlugins={[rehypeRaw, rehypeHighlight]}>
             {post.content}
           </Markdown>
         </div>

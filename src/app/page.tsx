@@ -55,7 +55,7 @@ export default function HomePage() {
             <ArrowLink className='mt-6' href='https://arxiv.org/abs/2409.09479' variant={mode} size='large'>
               arXiv Page
             </ArrowLink>
-            <ArrowLink className='mt-6' href='/components' variant={mode} size='large'>
+            <ArrowLink className='mt-6' href='/video/MACVO.mp4' variant={mode} size='large'>
               Video
             </ArrowLink>
             <ArrowLink className='mt-6' href='/content/Docs' variant={mode} size='large'>
@@ -97,6 +97,10 @@ export default function HomePage() {
 
       <section className={clsx(bgColor, textColor)}>
         <div className='layout py-12'>
+          <video controls className='rounded-xl my-8'>
+            <source type="video/mp4" src="/video/MACVO.mp4" />
+          </video>
+
           <h2 className='pb-4'>Methods</h2>
           <h3 className='pt-4'>System Pipeline</h3>
           <Figure
