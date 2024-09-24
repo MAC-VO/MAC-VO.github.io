@@ -49,15 +49,15 @@ export default function HomePage() {
             </span>
           </div>
           <div className="container flex flex-row items-center space-x-8 justify-center text-lg">
-            <ArrowLink className='mt-6' href='/components' variant={mode} size='large'>
+            <ArrowLink className='mt-6' href='https://github.com/MAC-VO/MAC-VO' variant={mode} size='large'>
               GitHub Repo
             </ArrowLink>
             <ArrowLink className='mt-6' href='https://arxiv.org/abs/2409.09479' variant={mode} size='large'>
               arXiv Page
             </ArrowLink>
-            <ArrowLink className='mt-6' href='/video/MACVO.mp4' variant={mode} size='large'>
+            {/* <ArrowLink className='mt-6' href='https://www.youtube.com/watch?v=O_HowJk-GDw' variant={mode} size='large'>
               Video
-            </ArrowLink>
+            </ArrowLink> */}
             <ArrowLink className='mt-6' href='/content/Docs' variant={mode} size='large'>
               Documentation
             </ArrowLink>
@@ -97,6 +97,7 @@ export default function HomePage() {
 
       <section className={clsx(bgColor, textColor)}>
         <div className='layout py-12'>
+          <h2>Supplimentary Video</h2>
           <video controls className='rounded-xl my-8'>
             <source type="video/mp4" src="/video/MACVO.mp4" />
           </video>
