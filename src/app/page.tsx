@@ -97,7 +97,7 @@ export default function HomePage() {
 
       <section className={clsx(bgColor, textColor)}>
         <div className='layout py-12'>
-          <h2>Supplimentary Video</h2>
+          <h2>Video</h2>
           <video controls className='rounded-xl my-8'>
             <source type="video/mp4" src="/video/MACVO.mp4" />
           </video>
