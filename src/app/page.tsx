@@ -58,7 +58,7 @@ export default function HomePage() {
             {/* <ArrowLink className='mt-6' href='https://www.youtube.com/watch?v=O_HowJk-GDw' variant={mode} size='large'>
               Video
             </ArrowLink> */}
-            <ArrowLink className='mt-6' href='/content/Docs' variant={mode} size='large'>
+            <ArrowLink className='mt-6' href='https://mac-vo.github.io/wiki/' variant={mode} size='large'>
               Documentation
             </ArrowLink>
           </div>
