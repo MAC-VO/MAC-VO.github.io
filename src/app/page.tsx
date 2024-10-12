@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import Head from 'next/head';
 import React from 'react';
 import '@/lib/env';
 
@@ -24,6 +25,9 @@ export default function HomePage() {
 
   return (
     <main>
+      <Head>
+        <meta name="google-site-verification" content="wORtJ7fq4X_rDll9Ym7DJ4lHQvSwbb87d_dflv28rN8" />
+      </Head>
       <section className={
         clsx(bgColor, textColor,
           "relative flex items-center justify-center h-screen overflow-hidden"
@@ -166,7 +170,7 @@ export default function HomePage() {
           </div>
 
           <hr />
-          <h4 className='py-4'>TartnaAir v2 Dataset</h4>
+          <h4 className='py-4'>TartanAir v2 Dataset</h4>
           <RerunViewerPopup
             title="Map Visualization for TartanAirv2, Trajectory E002 "
             rrd_file="https://mac-vo.github.io/rerun/tensor_map_vis.rrd"
