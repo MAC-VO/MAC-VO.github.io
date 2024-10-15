@@ -161,6 +161,7 @@ export default function HomePage() {
         <div className='layout py-12'>
           <h2 className='pb-4'>Qualitative Results</h2>
           <div className='layout py-4'>
+            <span className='mt-2 font-light'>Interactive 3D Demo, drag for viewport rotation and scroll to zoom in/out</span>
             <RerunViewerInline
               title="TartanAir Abandon Factory 1"
               rrd_file="https://mac-vo.github.io/rerun/TartanAir_AbandonFac_001.rrd"
@@ -170,55 +171,24 @@ export default function HomePage() {
           </div>
 
           <hr />
-          <h4 className='py-4'>TartanAir v2 Dataset</h4>
+          <h4 className='py-4'>TartanAir v2 Demo</h4>
           <RerunViewerPopup
             title="Map Visualization for TartanAirv2, Trajectory E002 "
             rrd_file="https://mac-vo.github.io/rerun/tensor_map_vis.rrd"
           />
 
-          <h4 className='py-4'>EuRoC Dataset</h4>
+          <h4 className='py-4'>EuRoC Demo</h4>
           <RerunViewerPopup
             title="Map Visualization for EuRoC V102"
             rrd_file="https://mac-vo.github.io/rerun/EuRoC_V102_Map.rrd"
           />
 
-          <h4 className='py-4'>KITTI Dataset</h4>
+          <h4 className='py-4'>KITTI Demo</h4>
           <RerunViewerPopup
             title="Map Visualization for KITTI Odometry 07"
             rrd_file="https://mac-vo.github.io/rerun/KITTI_07_Map.rrd"
           />
         </div>
-        {/* <div className='mx-8'>
-          <h3 className='pb-4 text-center'>Qualitative Results</h3>
-          <div className='flex items-center justify-center gap-8 pb-4'>
-            <ArrowLeftIcon size={24} />
-            <div className='flex gap-2'><MouseIcon size={24} /><span>Scroll Left/Right</span></div>
-            <ArrowRightIcon size={24} />
-          </div>
-          <div className='flex overflow-x-scroll gap-2'>
-            <RerunViewerInline
-              title="EuRoC V102"
-              rrd_file="https://mac-vo.github.io/rerun/EuRoC_V102_Map.rrd"
-              fallback_video='/video/Rotate_EuRoC_V102.mp4'
-              height='500px'
-              width='45vw'
-            />
-            <RerunViewerInline
-              title="TartanAir Abandon Factory 1"
-              rrd_file="https://mac-vo.github.io/rerun/TartanAir_AbandonFac_001.rrd"
-              fallback_video='/video/Rotate_TartanAir1.mp4'
-              height='500px'
-              width='45vw'
-            />
-            <RerunViewerInline
-              title="KITTI 07"
-              rrd_file="https://mac-vo.github.io/rerun/KITTI_07_Map.rrd"
-              fallback_video='/video/Rotate_KITTI07.mp4'
-              height='500px'
-              width='45vw'
-            />
-          </div>
-        </div> */}
       </section>
     </main >
   );
