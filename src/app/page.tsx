@@ -59,9 +59,6 @@ export default function HomePage() {
             <ArrowLink className='mt-6' href='https://arxiv.org/abs/2409.09479' variant={mode} size='large'>
               arXiv Page
             </ArrowLink>
-            {/* <ArrowLink className='mt-6' href='https://www.youtube.com/watch?v=O_HowJk-GDw' variant={mode} size='large'>
-              Video
-            </ArrowLink> */}
             <ArrowLink className='mt-6' href='https://mac-vo.github.io/wiki/' variant={mode} size='large'>
               Documentation
             </ArrowLink>
@@ -85,7 +82,7 @@ export default function HomePage() {
         </video>
       </section>
 
-      <section className={clsx(secondaryBgColor, textColor)}>
+      <section className={clsx(bgColor, textColor)}>
         <div className='layout py-12'>
           <h2 className='text-center pb-4'>Abstract</h2>
           <p className='text-pretty'>
@@ -96,16 +93,52 @@ export default function HomePage() {
             On public benchmark datasets, MAC-VO outperforms existing VO algorithms, even some SLAM algorithms in challenging environments.
             The covariance-aware framework also provides valuable information about the reliability of the estimated poses, which can benefit decision-making for autonomous systems.
           </p>
+
+          <h2 className='pt-4 pb-2'>Video</h2>
+          <video controls className='rounded-xl mb-8'>
+            <source type="video/mp4" src="/video/MACVO.mp4" />
+          </video>
+        </div>
+      </section>
+
+      <section className={clsx(secondaryBgColor, textColor)}>
+        <div className='layout py-12'>
+          <h2 className='pb-4'>Results</h2>
+          <div className='layout py-4'>
+            <span className='mt-2 font-light'>Interactive 3D Demo, drag for viewport rotation and scroll to zoom in/out</span>
+            <RerunViewerInline
+              title="TartanAir Abandon Factory 1"
+              rrd_file="https://mac-vo.github.io/rerun/TartanAir_AbandonFac_001.rrd"
+              fallback_video='/video/Rotate_TartanAir1.mp4'
+              height='50vh'
+            />
+          </div>
+
+          <hr />
+          <h4 className='py-4'>More Interactive 3D Demos</h4>
+          <RerunViewerPopup
+            title="Map Visualization for TartanAirv2, Trajectory E002 "
+            rrd_file="https://mac-vo.github.io/rerun/tensor_map_vis.rrd"
+          />
+
+          &nbsp;
+
+          <RerunViewerPopup
+            title="Map Visualization for EuRoC V102"
+            rrd_file="https://mac-vo.github.io/rerun/EuRoC_V102_Map.rrd"
+          />
+
+          &nbsp;
+
+          <RerunViewerPopup
+            title="Map Visualization for KITTI Odometry 07"
+            rrd_file="https://mac-vo.github.io/rerun/KITTI_07_Map.rrd"
+          />
         </div>
       </section>
 
       <section className={clsx(bgColor, textColor)}>
         <div className='layout py-12'>
-          <h2>Video</h2>
-          <video controls className='rounded-xl my-8'>
-            <source type="video/mp4" src="/video/MACVO.mp4" />
-          </video>
-
           <h2 className='pb-4'>Methods</h2>
           <h3 className='pt-4'>System Pipeline</h3>
           <Figure
@@ -153,40 +186,6 @@ export default function HomePage() {
             }
             isDark={mode === "dark"}
             idx={2}
-          />
-        </div>
-      </section>
-
-      <section className={clsx(secondaryBgColor, textColor)}>
-        <div className='layout py-12'>
-          <h2 className='pb-4'>Qualitative Results</h2>
-          <div className='layout py-4'>
-            <span className='mt-2 font-light'>Interactive 3D Demo, drag for viewport rotation and scroll to zoom in/out</span>
-            <RerunViewerInline
-              title="TartanAir Abandon Factory 1"
-              rrd_file="https://mac-vo.github.io/rerun/TartanAir_AbandonFac_001.rrd"
-              fallback_video='/video/Rotate_TartanAir1.mp4'
-              height='50vh'
-            />
-          </div>
-
-          <hr />
-          <h4 className='py-4'>TartanAir v2 Demo</h4>
-          <RerunViewerPopup
-            title="Map Visualization for TartanAirv2, Trajectory E002 "
-            rrd_file="https://mac-vo.github.io/rerun/tensor_map_vis.rrd"
-          />
-
-          <h4 className='py-4'>EuRoC Demo</h4>
-          <RerunViewerPopup
-            title="Map Visualization for EuRoC V102"
-            rrd_file="https://mac-vo.github.io/rerun/EuRoC_V102_Map.rrd"
-          />
-
-          <h4 className='py-4'>KITTI Demo</h4>
-          <RerunViewerPopup
-            title="Map Visualization for KITTI Odometry 07"
-            rrd_file="https://mac-vo.github.io/rerun/KITTI_07_Map.rrd"
           />
         </div>
       </section>
