@@ -11,6 +11,7 @@ import Figure from '@/components/Figure';
 import KatexSpan from '@/components/KaTeX';
 import ArrowLink from '@/components/links/ArrowLink';
 import RerunViewerInline from '@/components/RerunViewer/InlineViewer';
+import RerunViewerPopup from '@/components/RerunViewer/RerunViewer';
 import ExternalSwitch from '@/components/Switch';
 
 
@@ -104,35 +105,41 @@ export default function HomePage() {
         <div className='layout py-12'>
           <h2 className='pb-4'>Results</h2>
           <div className='layout py-4'>
-            <span className='mt-2 font-light'>Interactive 3D Demo, drag for viewport rotation and scroll to zoom in/out</span>
+            <p><span className='mt-2 font-light'>Interactive 3D Demo, drag for viewport rotation and scroll to zoom in/out</span></p>
+            <p><span className='mt-2 font-bold text-primary-600'>Loading a demo may take several seconds, depending on your network condition.</span></p>
             <RerunViewerInline
               title="TartanAir Abandon Factory 1"
               rrd_file="/rerun/TartanAir1_abf000.rrd"
               fallback_video='/video/Rotate_TartanAir1.mp4'
-              height='50vh'
+              height='75vh'
             />
           </div>
 
           <hr />
-          {/* <h4 className='py-4'>More Interactive 3D Demos</h4>
+          <h4 className='py-4'>More Interactive 3D Demos</h4>
+          <p className='pb-4'>
+            We present some additional maps and trajectories reconstructed by the MAC-VO using default configuration (without fine-tuning).
+            Click to open interactive 3D demo.
+          </p>
+
           <RerunViewerPopup
-            title="Map Visualization for TartanAirv2, Trajectory E002 "
-            rrd_file="https://mac-vo.github.io/rerun/tensor_map_vis.rrd"
+            title="TartanAirv2, Test Trajectory H002"
+            rrd_file="/rerun/TartanAir2_H002.rrd"
           />
 
           &nbsp;
 
           <RerunViewerPopup
-            title="Map Visualization for EuRoC V102"
-            rrd_file="https://mac-vo.github.io/rerun/EuRoC_V102_Map.rrd"
+            title="EuRoC, Trajectory V102"
+            rrd_file="/rerun/EuRoC_V102.rrd"
           />
 
           &nbsp;
 
           <RerunViewerPopup
-            title="Map Visualization for KITTI Odometry 07"
-            rrd_file="https://mac-vo.github.io/rerun/KITTI_07_Map.rrd"
-          /> */}
+            title="KITTI, Trajectory 07"
+            rrd_file="https://mac-vo.github.io/rerun/KITTI_K07.rrd"
+          />
         </div>
       </section>
 
