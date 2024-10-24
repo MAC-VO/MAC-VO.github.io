@@ -11,7 +11,6 @@ import Figure from '@/components/Figure';
 import KatexSpan from '@/components/KaTeX';
 import ArrowLink from '@/components/links/ArrowLink';
 import RerunViewerInline from '@/components/RerunViewer/InlineViewer';
-import RerunViewerPopup from '@/components/RerunViewer/RerunViewer';
 import ExternalSwitch from '@/components/Switch';
 
 
@@ -108,14 +107,14 @@ export default function HomePage() {
             <span className='mt-2 font-light'>Interactive 3D Demo, drag for viewport rotation and scroll to zoom in/out</span>
             <RerunViewerInline
               title="TartanAir Abandon Factory 1"
-              rrd_file="https://mac-vo.github.io/rerun/TartanAir_AbandonFac_001.rrd"
+              rrd_file="/rerun/TartanAir1_abf000.rrd"
               fallback_video='/video/Rotate_TartanAir1.mp4'
               height='50vh'
             />
           </div>
 
           <hr />
-          <h4 className='py-4'>More Interactive 3D Demos</h4>
+          {/* <h4 className='py-4'>More Interactive 3D Demos</h4>
           <RerunViewerPopup
             title="Map Visualization for TartanAirv2, Trajectory E002 "
             rrd_file="https://mac-vo.github.io/rerun/tensor_map_vis.rrd"
@@ -133,7 +132,7 @@ export default function HomePage() {
           <RerunViewerPopup
             title="Map Visualization for KITTI Odometry 07"
             rrd_file="https://mac-vo.github.io/rerun/KITTI_07_Map.rrd"
-          />
+          /> */}
         </div>
       </section>
 

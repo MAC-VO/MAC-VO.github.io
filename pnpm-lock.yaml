@@ -24,8 +24,8 @@ importers:
         specifier: ^14.2.5
         version: 14.2.5(@mdx-js/loader@3.0.1(webpack@5.93.0))(@mdx-js/react@3.0.1(@types/react@18.3.3)(react@18.3.1))
       '@rerun-io/web-viewer-react':
-        specifier: '0.17'
-        version: 0.17.0
+        specifier: '0.18'
+        version: 0.18.2
       '@types/mdx':
         specifier: ^2.0.13
         version: 2.0.13
@@ -1148,11 +1148,11 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
 
-  '@rerun-io/web-viewer-react@0.17.0':
-    resolution: {integrity: sha512-4ACnsHTLSVZs91MZnjnt96pdhwRFulucH+1NPIq+7samZrH/CTxuyjysvh/AffSE1VncqdE0NdxhdTFUrZsraQ==}
+  '@rerun-io/web-viewer-react@0.18.2':
+    resolution: {integrity: sha512-qKUDxUFWVqcyAAqFbBwIe2P6rEPmzYm6pPvm2lgyPa36u0tiaaDzvMBzXTKmt2bv7sx7+1gsxIuXy7CfN82A2A==}
 
-  '@rerun-io/web-viewer@0.17.0':
-    resolution: {integrity: sha512-pjdPvyTpM1flFoid8wf1rpGnH6+OmqzSzV20FOpc+gxx1w2Qq5GWmvDkRXHj6tbJyVManqQ5dk8OVJKn6P+F+g==}
+  '@rerun-io/web-viewer@0.18.2':
+    resolution: {integrity: sha512-69BEDswSUkMOWAC1m9GH8tM770kwmHSJZjUWlvewlhWWIZOJOqLlXxJLE1NSv3WmTTPoQeJ3RfjBpCrqcyR0hA==}
 
   '@rushstack/eslint-patch@1.10.2':
     resolution: {integrity: sha512-hw437iINopmQuxWPSUEvqE56NCPsiU8N4AYtfHmJFckclktzK9YQJieD3XkDCDH4OjL+C7zgPUh73R/nrcHrqw==}
@@ -5577,13 +5577,13 @@ snapshots:
     dependencies:
       react: 18.3.1
 
-  '@rerun-io/web-viewer-react@0.17.0':
+  '@rerun-io/web-viewer-react@0.18.2':
     dependencies:
-      '@rerun-io/web-viewer': 0.17.0
+      '@rerun-io/web-viewer': 0.18.2
       '@types/react': 18.3.3
       react: 18.3.1
 
-  '@rerun-io/web-viewer@0.17.0': {}
+  '@rerun-io/web-viewer@0.18.2': {}
 
   '@rushstack/eslint-patch@1.10.2': {}
 
