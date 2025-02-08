@@ -10,6 +10,7 @@ import useDarkMode from '@/lib/storage';
 import Figure from '@/components/Figure';
 import KatexSpan from '@/components/KaTeX';
 import ArrowLink from '@/components/links/ArrowLink';
+import UnderlineLink from '@/components/links/UnderlineLink';
 import RerunViewerInline from '@/components/RerunViewer/InlineViewer';
 import RerunViewerPopup from '@/components/RerunViewer/RerunViewer';
 import ExternalSwitch from '@/components/Switch';
@@ -104,6 +105,7 @@ export default function HomePage() {
       <section className={clsx(secondaryBgColor, textColor)}>
         <div className='layout py-12'>
           <h2 className='pb-4'>Results</h2>
+          <h3 className='py-4'>Interactive 3D Demos</h3>
           <div className='layout py-4'>
             <p><span className='mt-2 font-light'>Interactive 3D Demo, drag for viewport rotation and scroll to zoom in/out</span></p>
             <p><span className='mt-2 font-bold text-primary-600'>Loading a demo may take several seconds, depending on your network condition.</span></p>
@@ -116,30 +118,42 @@ export default function HomePage() {
           </div>
 
           <hr />
-          <h4 className='py-4'>More Interactive 3D Demos</h4>
+
           <p className='pb-4'>
             We present some additional maps and trajectories reconstructed by the MAC-VO using default configuration (without fine-tuning).
             Click to open interactive 3D demo.
           </p>
 
-          <RerunViewerPopup
-            title="TartanAirv2, Test Trajectory H002"
-            rrd_file="/rerun/TartanAir2_H002.rrd"
-          />
+          <p>
+            <RerunViewerPopup
+              title="TartanAirv2, Test Trajectory H002"
+              rrd_file="/rerun/TartanAir2_H002.rrd"
+            />
 
-          &nbsp;
+            &nbsp;
 
-          <RerunViewerPopup
-            title="EuRoC, Trajectory V102"
-            rrd_file="/rerun/EuRoC_V102.rrd"
-          />
+            <RerunViewerPopup
+              title="EuRoC, Trajectory V102"
+              rrd_file="/rerun/EuRoC_V102.rrd"
+            />
 
-          &nbsp;
+            &nbsp;
 
-          <RerunViewerPopup
-            title="KITTI, Trajectory 07"
-            rrd_file="https://mac-vo.github.io/rerun/KITTI_K07.rrd"
-          />
+            <RerunViewerPopup
+              title="KITTI, Trajectory 07"
+              rrd_file="https://mac-vo.github.io/rerun/KITTI_K07.rrd"
+            />
+          </p>
+
+          <h3 className='mt-12 mb-4'>MAC-VO In the Wild</h3>
+
+          <p className='py-4'>
+            We collected some real-world trajectory data and run them with MAC-VO. The following video is one of the result showing MAC-VO running with Zed-X Camera at the <UnderlineLink href="https://www.google.com/maps/place/Pittsburgh+Police+%26+Fire+Training+Academy/data=!4m2!3m1!1s0x0:0xd2ce6da23de1b531?sa=X&ved=1t:2428&ictx=111">Fire Academy</UnderlineLink> in Pittsburgh, PA.
+          </p>
+
+          <video controls autoPlay className='rounded-xl mb-8 max-w-lg mx-auto'>
+            <source type="video/mp4" src="/video/Twitter2-FireAC.mp4" />
+          </video>
         </div>
       </section>
 
