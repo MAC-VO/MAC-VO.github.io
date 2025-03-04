@@ -10,6 +10,7 @@ import useDarkMode from '@/lib/storage';
 import Figure from '@/components/Figure';
 import KatexSpan from '@/components/KaTeX';
 import ArrowLink from '@/components/links/ArrowLink';
+import UnderlineLink from '@/components/links/UnderlineLink';
 import ExternalSwitch from '@/components/Switch';
 
 
@@ -56,6 +57,9 @@ export default function HomePage() {
             </ArrowLink>
             <ArrowLink className='mt-6' href='https://arxiv.org/abs/2409.09479' variant={mode} size='large'>
               arXiv Page
+            </ArrowLink>
+            <ArrowLink className='mt-6' href='https://www.youtube.com/watch?v=O_HowJk-GDw' variant={mode} size='large'>
+              Explain Video
             </ArrowLink>
             <ArrowLink className='mt-6' href='https://mac-vo.github.io/wiki/' variant={mode} size='large'>
               Documentation
@@ -140,55 +144,19 @@ export default function HomePage() {
           <h3 className='mt-12 mb-4'>MAC-VO Dense Mapping Mode</h3>
           <p className='py-4'>
             MAC-VO supports the "dense mapping" mode. Leveraging the uncertainty prediction network, we can conveniently select reliable depth estimations for dense mapping <span className='mt-2 font-bold text-primary-600'>without bundle adjustment / multi-frame optimization</span>.
-            The following video shows the dense mapping result on EuRoC, TartanAir, and TartanAir v2. <span className='mt-2 font-bold text-primary-600'>No post-processing is applied.</span>
+            The following video shows the dense mapping result on EuRoC, <UnderlineLink href="https://rvp-group.net/slam-dataset.html">VBR</UnderlineLink>, TartanAir, and TartanAir v2. <span className='mt-2 font-bold text-primary-600'>No post-processing is applied.</span>
           </p>
         </div>
         <div className="wide-layout grid grid-cols-1 lg:grid-cols-12 gap-2 items-stretch pb-12">
-          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-4">
-            <p className='p-2 lg:text-lg rounded-t-xl'>TartanAir v2 - Abandon School 1</p>
-            <div className='flex-grow' />
-            <video controls autoPlay loop muted className='rounded-b-xl mx-auto'>
-              <source type="video/mp4" src="/video/TartanAirv2_AbandonedSchoolP001.mp4" />
-            </video>
-          </div>
-          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-4">
-            <p className='p-2 lg:text-lg rounded-t-xl'>TartanAir - Abandon Factory 0</p>
-            <div className='flex-grow' />
-            <video controls autoPlay loop muted className='rounded-b-xl mx-auto'>
-              <source type="video/mp4" src="/video/TartanAir_AbandonedFactory_P001.mp4" />
-            </video>
-          </div>
-          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-4">
-            <p className='p-2 lg:text-lg rounded-t-xl '>EuRoC V102</p>
-            <div className='flex-grow' />
-            <video controls autoPlay loop muted className='rounded-b-xl mx-auto'>
-              <source type="video/mp4" src="/video/EuRoC_V102.mp4" />
-            </video>
-          </div>
-          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-6">
-            <p className='p-2 lg:text-lg rounded-t-xl '>TartanAir v2 Test (Easy Subset) 3</p>
-            <div className='flex-grow' />
-            <video controls autoPlay loop muted className='rounded-xl mx-auto'>
-              <source type="video/mp4" src="/video/TartanAirv2_Test_E003.mp4" />
-            </video>
-          </div>
-          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-5">
-            <p className='p-2 lg:text-lg rounded-t-xl '>Zed X Fire Academy 1</p>
-            <div className='flex-grow' />
-            <video controls autoPlay loop muted className='rounded-xl mx-auto'>
-              <source type="video/mp4" src="/video/Zed_FireAcademy.mp4" />
-            </video>
-          </div>
-          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-500 col-span-1">
-          </div>
-          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-4">
+          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-3">
             <p className='p-2 lg:text-lg rounded-t-xl '>Zed X Fire Academy 2</p>
             <div className='flex-grow' />
             <video controls autoPlay loop muted className='rounded-xl mx-auto'>
               <source type="video/mp4" src="/video/Zed_FireAcademy2.mp4" />
             </video>
+            <div className='flex-grow' />
           </div>
-          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-4">
+          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-5">
             <p className='p-2 lg:text-lg rounded-t-xl '>VBR Diag Train 0</p>
             <div className='flex-grow' />
             <video controls autoPlay loop muted className='rounded-xl mx-auto'>
@@ -226,6 +194,43 @@ export default function HomePage() {
               <source type="video/mp4" src="/video/VBR_Colosseo_Train0.mp4" />
             </video>
           </div>
+          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-4">
+            <p className='p-2 lg:text-lg rounded-t-xl'>TartanAir v2 - Abandon School 1</p>
+            <div className='flex-grow' />
+            <video controls autoPlay loop muted className='rounded-b-xl mx-auto'>
+              <source type="video/mp4" src="/video/TartanAirv2_AbandonedSchoolP001.mp4" />
+            </video>
+          </div>
+          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-4">
+            <p className='p-2 lg:text-lg rounded-t-xl'>TartanAir - Abandon Factory 0</p>
+            <div className='flex-grow' />
+            <video controls autoPlay loop muted className='rounded-b-xl mx-auto'>
+              <source type="video/mp4" src="/video/TartanAir_AbandonedFactory_P001.mp4" />
+            </video>
+          </div>
+          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-4">
+            <p className='p-2 lg:text-lg rounded-t-xl '>EuRoC V102</p>
+            <div className='flex-grow' />
+            <video controls autoPlay loop muted className='rounded-b-xl mx-auto'>
+              <source type="video/mp4" src="/video/EuRoC_V102.mp4" />
+            </video>
+          </div>
+          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-7">
+            <p className='p-2 lg:text-lg rounded-t-xl '>TartanAir v2 Test (Easy Subset) 3</p>
+            <div className='flex-grow' />
+            <video controls autoPlay loop muted className='rounded-xl mx-auto'>
+              <source type="video/mp4" src="/video/TartanAirv2_Test_E003.mp4" />
+            </video>
+          </div>
+          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-5">
+            <p className='p-2 lg:text-lg rounded-t-xl '>Zed X Fire Academy 1</p>
+            <div className='flex-grow' />
+            <video controls autoPlay loop muted className='rounded-xl mx-auto'>
+              <source type="video/mp4" src="/video/Zed_FireAcademy.mp4" />
+            </video>
+          </div>
+          {/* <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-500 col-span-1">
+          </div> */}
         </div>
       </section>
 
