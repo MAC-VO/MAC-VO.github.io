@@ -103,7 +103,7 @@ export default function HomePage() {
       </section>
 
       <section className={clsx(secondaryBgColor, textColor)}>
-        <div className='layout py-12'>
+        <div className='layout pt-12 pb-4'>
           <h2 className='pb-4'>Results</h2>
           <h3 className='py-4'>Interactive 3D Demos</h3>
           <div className='layout py-4'>
@@ -145,15 +145,62 @@ export default function HomePage() {
             />
           </p>
 
+          <h3 className='mt-12 mb-4'>MAC-VO Dense Mapping Mode</h3>
+          <p className='py-4'>
+            MAC-VO supports the "dense mapping" mode. Leveraging the uncertainty prediction network, we can conveniently select reliable depth estimations for dense mapping <span className='mt-2 font-bold text-primary-600'>without bundle adjustment / multi-frame optimization</span>.
+            The following video shows the dense mapping result on EuRoC, TartanAir, and TartanAir v2. <span className='mt-2 font-bold text-primary-600'>No post-processing is applied.</span>
+          </p>
+        </div>
+        <div className="mx-auto overflow-x-auto flex flex-row flex-nowrap snap-x snap-mandatory pb-4">
+          <div className='min-w-16'></div>
+          <div className="snap-center flex-shrink-0 mx-2 border-gray-400 p-2 border-2 rounded-xl">
+            <p className='my-2 text-lg'>[1/4] TartanAir v2 - Abandoned School P001</p>
+            <video controls autoPlay className='rounded-xl max-h-96 max-w-[80vw]'>
+              <source type="video/mp4" src="/video/TartanAirv2_AbandonedSchoolP001.mp4" />
+            </video>
+          </div>
+          <div className="snap-center flex-shrink-0 mx-2 border-gray-400 p-2 border-2 rounded-xl">
+            <p className='my-2 text-lg'>[2/4] TartanAir - Abandoned Factory P000</p>
+            <video controls className='rounded-xl max-h-96 max-w-[80vw]'>
+              <source type="video/mp4" src="/video/TartanAir_AbandonedFactory_P001.mov" />
+            </video>
+          </div>
+          <div className="snap-center flex-shrink-0 mx-2 border-gray-400 p-2 border-2 rounded-xl">
+            <p className='my-2 text-lg'>[3/4] EuRoC V102</p>
+            <video controls className='rounded-xl max-h-96 max-w-[80vw]'>
+              <source type="video/mp4" src="/video/EuRoC_V102.mp4" />
+            </video>
+          </div>
+          <div className="snap-center flex-shrink-0 mx-2 border-gray-400 p-2 border-2 rounded-xl">
+            <p className='my-2 text-lg'>[4/4] TartanAir v2 Test (Easy Subset) 3</p>
+            <video controls className='rounded-xl max-h-96 max-w-[80vw]'>
+              <source type="video/mp4" src="/video/TartanAirv2_Test_E003.mp4" />
+            </video>
+          </div>
+          <div className='min-w-16'></div>
+        </div>
+        <div className='layout pb-12'>
           <h3 className='mt-12 mb-4'>MAC-VO In the Wild</h3>
 
           <p className='py-4'>
             We collected some real-world trajectory data and run them with MAC-VO. The following video is one of the result showing MAC-VO running with Zed-X Camera at the <UnderlineLink href="https://www.google.com/maps/place/Pittsburgh+Police+%26+Fire+Training+Academy/data=!4m2!3m1!1s0x0:0xd2ce6da23de1b531?sa=X&ved=1t:2428&ictx=111">Fire Academy</UnderlineLink> in Pittsburgh, PA.
           </p>
-
-          <video controls autoPlay className='rounded-xl mb-8 max-w-lg mx-auto'>
-            <source type="video/mp4" src="/video/Twitter2-FireAC.mp4" />
-          </video>
+        </div>
+        <div className="mx-auto overflow-x-auto flex flex-row flex-nowrap snap-x snap-mandatory pb-4">
+          <div className='min-w-16'></div>
+          <div className="snap-center flex-shrink-0 mx-2 border-gray-400 p-2 border-2 rounded-xl">
+            <p className='my-2 text-lg'>[1/2] MAC-VO Localization</p>
+            <video controls className='rounded-xl max-h-96 max-w-[80vw]'>
+              <source type="video/mp4" src="/video/Twitter2-FireAC.mp4" />
+            </video>
+          </div>
+          <div className="snap-center flex-shrink-0 mx-2 border-gray-400 p-2 border-2 rounded-xl">
+            <p className='my-2 text-lg'>[2/2] MAC-VO Dense Mapping</p>
+            <video controls className='rounded-xl max-h-96 max-w-[80vw]'>
+              <source type="video/mp4" src="/video/Zed_FireAcademy.mp4" />
+            </video>
+          </div>
+          <div className='min-w-16'></div>
         </div>
       </section>
 
@@ -183,10 +230,10 @@ export default function HomePage() {
             }
             isDark={mode === "dark"}
             idx={2}
-          /> */}
+          />
 
 
-          {/* <h3 className='pt-4'>Uncertainty Aware Keypoint Selector</h3>
+          <h3 className='pt-4'>Uncertainty Aware Keypoint Selector</h3>
           <Figure
             img_src="/images/KPSelector.png"
             caption="We include three filters: Non-minimum Suppression (NMS) filter, a geometric filter, and an uncertainty-based filter. In the KITTI odometry dataset, the uncertainty filter can capture the inconsistency and implicitly filter out the unreliable features on the moving objects in the scene. "
