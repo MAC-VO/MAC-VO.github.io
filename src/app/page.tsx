@@ -10,9 +10,6 @@ import useDarkMode from '@/lib/storage';
 import Figure from '@/components/Figure';
 import KatexSpan from '@/components/KaTeX';
 import ArrowLink from '@/components/links/ArrowLink';
-import UnderlineLink from '@/components/links/UnderlineLink';
-import RerunViewerInline from '@/components/RerunViewer/InlineViewer';
-import RerunViewerPopup from '@/components/RerunViewer/RerunViewer';
 import ExternalSwitch from '@/components/Switch';
 
 
@@ -20,7 +17,7 @@ export default function HomePage() {
   const [mode, toggleMode] = useDarkMode();
   const textColor = mode === 'dark' ? 'text-gray-300' : 'text-gray-700';
   const bgColor = mode === 'dark' ? 'bg-dark' : 'bg-white';
-  const maskColor = mode === 'dark' ? 'bg-dark/70' : 'bg-white/70';
+  const maskColor = mode === 'dark' ? 'bg-dark/80' : 'bg-white/80';
   const secondaryBgColor = mode === 'dark' ? 'bg-neutral-700' : 'bg-gray-100';
   const hlTextColor = mode === "dark" ? "text-primary-500" : "text-primary-600";
 
@@ -38,7 +35,7 @@ export default function HomePage() {
           <span>Light Mode </span>
           <ExternalSwitch state={mode === "light"} switch_state={toggleMode} />
         </div>
-        <div className='layout z-20 relative flex min-h-screen flex-col items-center justify-center py-12 text-center'>
+        <div className='layout z-20 relative flex min-h-screen flex-col items-center justify-center p-4 text-center'>
           <h1 className='mt-4 text-5xl'>MAC-VO: {" "}
             <span className={hlTextColor}>M</span>etrics-<span className={hlTextColor}>A</span>ware {" "}
             <span className={hlTextColor}>C</span>ovariance {" "}
@@ -65,7 +62,7 @@ export default function HomePage() {
             </ArrowLink>
           </div>
         </div>
-        <div className={clsx("absolute w-auto min-w-full min-h-full max-w-none z-10 backdrop-blur-sm", maskColor)} />
+        <div className={clsx("absolute w-auto min-w-full min-h-full max-w-none z-10", maskColor)} />
         <div className="absolute bottom-4 left-4 z-20">
           <p>* Equal Contribution.</p>
         </div>
@@ -76,7 +73,7 @@ export default function HomePage() {
           className="absolute w-auto min-w-full min-h-full max-w-none z-0"
         >
           <source
-            src="/video/SLAM_on_Moon_with_cov.mp4"
+            src="/video/MACVO_Background.mp4"
             type="video/mp4"
           />
           Your browser does not support the video tag.
@@ -94,18 +91,13 @@ export default function HomePage() {
             On public benchmark datasets, MAC-VO outperforms existing VO algorithms, even some SLAM algorithms in challenging environments.
             The covariance-aware framework also provides valuable information about the reliability of the estimated poses, which can benefit decision-making for autonomous systems.
           </p>
-
-          <h2 className='pt-4 pb-2'>Video</h2>
-          <video controls className='rounded-xl mb-8'>
-            <source type="video/mp4" src="/video/MACVO.mp4" />
-          </video>
         </div>
       </section>
 
       <section className={clsx(secondaryBgColor, textColor)}>
-        <div className='layout pt-12 pb-4'>
-          <h2 className='pb-4'>Results</h2>
-          <h3 className='py-4'>Interactive 3D Demos</h3>
+        <div className='layout pt-4 pb-4'>
+          {/* <h2 className='pb-4'>Results</h2> */}
+          {/* <h3 className='py-4'>Interactive 3D Demos</h3>
           <div className='layout py-4'>
             <p><span className='mt-2 font-light'>Interactive 3D Demo, drag for viewport rotation and scroll to zoom in/out</span></p>
             <p><span className='mt-2 font-bold text-primary-600'>Loading a demo may take several seconds, depending on your network condition.</span></p>
@@ -143,7 +135,7 @@ export default function HomePage() {
               title="KITTI, Trajectory 07"
               rrd_file="https://mac-vo.github.io/rerun/KITTI_K07.rrd"
             />
-          </p>
+          </p> */}
 
           <h3 className='mt-12 mb-4'>MAC-VO Dense Mapping Mode</h3>
           <p className='py-4'>
@@ -151,61 +143,98 @@ export default function HomePage() {
             The following video shows the dense mapping result on EuRoC, TartanAir, and TartanAir v2. <span className='mt-2 font-bold text-primary-600'>No post-processing is applied.</span>
           </p>
         </div>
-        <div className="mx-auto overflow-x-auto flex flex-row flex-nowrap snap-x snap-mandatory pb-4">
-          <div className='min-w-[20vw]'></div>
-          <div className="snap-center flex-shrink-0 mx-2 border-gray-400 p-2 border-2 rounded-xl">
-            <p className='my-2 text-lg'>[1/4] TartanAir v2 - Abandoned School P001</p>
-            <video controls autoPlay className='rounded-xl max-h-96 max-w-[80vw]'>
+        <div className="wide-layout grid grid-cols-1 lg:grid-cols-12 gap-2 items-stretch pb-12">
+          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-4">
+            <p className='p-2 lg:text-lg rounded-t-xl'>TartanAir v2 - Abandon School 1</p>
+            <div className='flex-grow' />
+            <video controls autoPlay loop muted className='rounded-b-xl mx-auto'>
               <source type="video/mp4" src="/video/TartanAirv2_AbandonedSchoolP001.mp4" />
             </video>
           </div>
-          <div className="snap-center flex-shrink-0 mx-2 border-gray-400 p-2 border-2 rounded-xl">
-            <p className='my-2 text-lg'>[2/4] TartanAir - Abandoned Factory P000</p>
-            <video controls className='rounded-xl max-h-96 max-w-[80vw]'>
-              <source type="video/mp4" src="/video/TartanAir_AbandonedFactory_P001.mov" />
+          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-4">
+            <p className='p-2 lg:text-lg rounded-t-xl'>TartanAir - Abandon Factory 0</p>
+            <div className='flex-grow' />
+            <video controls autoPlay loop muted className='rounded-b-xl mx-auto'>
+              <source type="video/mp4" src="/video/TartanAir_AbandonedFactory_P001.mp4" />
             </video>
           </div>
-          <div className="snap-center flex-shrink-0 mx-2 border-gray-400 p-2 border-2 rounded-xl">
-            <p className='my-2 text-lg'>[3/4] EuRoC V102</p>
-            <video controls className='rounded-xl max-h-96 max-w-[80vw]'>
+          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-4">
+            <p className='p-2 lg:text-lg rounded-t-xl '>EuRoC V102</p>
+            <div className='flex-grow' />
+            <video controls autoPlay loop muted className='rounded-b-xl mx-auto'>
               <source type="video/mp4" src="/video/EuRoC_V102.mp4" />
             </video>
           </div>
-          <div className="snap-center flex-shrink-0 mx-2 border-gray-400 p-2 border-2 rounded-xl">
-            <p className='my-2 text-lg'>[4/4] TartanAir v2 Test (Easy Subset) 3</p>
-            <video controls className='rounded-xl max-h-96 max-w-[80vw]'>
+          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-6">
+            <p className='p-2 lg:text-lg rounded-t-xl '>TartanAir v2 Test (Easy Subset) 3</p>
+            <div className='flex-grow' />
+            <video controls autoPlay loop muted className='rounded-xl mx-auto'>
               <source type="video/mp4" src="/video/TartanAirv2_Test_E003.mp4" />
             </video>
           </div>
-          <div className='min-w-[20vw]'></div>
-        </div>
-        <div className='layout pb-4'>
-          <h3 className='mt-12 mb-4'>MAC-VO In the Wild</h3>
-
-          <p className='py-4'>
-            We collected some real-world trajectory data and run them with MAC-VO. The following video is one of the result showing MAC-VO running with Zed-X Camera at the <UnderlineLink href="https://www.google.com/maps/place/Pittsburgh+Police+%26+Fire+Training+Academy/data=!4m2!3m1!1s0x0:0xd2ce6da23de1b531?sa=X&ved=1t:2428&ictx=111">Fire Academy</UnderlineLink> in Pittsburgh, PA.
-          </p>
-        </div>
-        <div className="mx-auto overflow-x-auto flex flex-row flex-nowrap snap-x snap-mandatory pb-12">
-          <div className='min-w-[20vw]'></div>
-          <div className="snap-center flex-shrink-0 mx-2 border-gray-400 p-2 border-2 rounded-xl">
-            <p className='my-2 text-lg'>[1/2] MAC-VO Localization</p>
-            <video controls className='rounded-xl max-h-96 max-w-[80vw]'>
-              <source type="video/mp4" src="/video/Twitter2-FireAC.mp4" />
-            </video>
-          </div>
-          <div className="snap-center flex-shrink-0 mx-2 border-gray-400 p-2 border-2 rounded-xl">
-            <p className='my-2 text-lg'>[2/2] MAC-VO Dense Mapping</p>
-            <video controls className='rounded-xl max-h-96 max-w-[80vw]'>
+          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-5">
+            <p className='p-2 lg:text-lg rounded-t-xl '>Zed X Fire Academy 1</p>
+            <div className='flex-grow' />
+            <video controls autoPlay loop muted className='rounded-xl mx-auto'>
               <source type="video/mp4" src="/video/Zed_FireAcademy.mp4" />
             </video>
           </div>
-          <div className='min-w-[20vw]'></div>
+          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-500 col-span-1">
+          </div>
+          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-4">
+            <p className='p-2 lg:text-lg rounded-t-xl '>Zed X Fire Academy 2</p>
+            <div className='flex-grow' />
+            <video controls autoPlay loop muted className='rounded-xl mx-auto'>
+              <source type="video/mp4" src="/video/Zed_FireAcademy2.mp4" />
+            </video>
+          </div>
+          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-4">
+            <p className='p-2 lg:text-lg rounded-t-xl '>VBR Diag Train 0</p>
+            <div className='flex-grow' />
+            <video controls autoPlay loop muted className='rounded-xl mx-auto'>
+              <source type="video/mp4" src="/video/VBR_Diag_Train0.mp4" />
+            </video>
+          </div>
+          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-4">
+            <p className='p-2 lg:text-lg rounded-t-xl '>
+              VBR Spagna Test 0
+              <span className='mt-2 font-light text-primary-500'> (Dynamic Scene)</span>
+            </p>
+            <div className='flex-grow' />
+            <video controls autoPlay loop muted className='rounded-xl mx-auto'>
+              <source type="video/mp4" src="/video/VBR_Spagna_Test0.mp4" />
+            </video>
+          </div>
+          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-500 col-span-1"></div>
+          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-4">
+            <p className='p-2 lg:text-lg rounded-t-xl '>
+              VBR Spagna Test 0 (2)
+              <span className='mt-2 font-light text-primary-500'> (Dynamic Scene)</span>
+            </p>
+            <div className='flex-grow' />
+            <video controls autoPlay loop muted className='rounded-xl mx-auto'>
+              <source type="video/mp4" src="/video/VBR_Spagna_Test0_2.mp4" />
+            </video>
+          </div>
+          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-7">
+            <p className='p-2 lg:text-lg rounded-t-xl '>
+              VBR Colosseo Train 0
+              <span className='mt-2 font-light text-primary-500'> (Extreme Exposure)</span>
+            </p>
+            <div className='flex-grow' />
+            <video controls autoPlay loop muted className='rounded-xl mx-auto'>
+              <source type="video/mp4" src="/video/VBR_Colosseo_Train0.mp4" />
+            </video>
+          </div>
         </div>
       </section>
 
       <section className={clsx(bgColor, textColor)}>
         <div className='layout py-12'>
+          <h2 className='pt-4 pb-2'>Explainer Video</h2>
+          <video controls className='rounded-xl mb-8'>
+            <source type="video/mp4" src="/video/MACVO.mp4" />
+          </video>
           <h2 className='pb-4'>Methods</h2>
           <h3 className='pt-4'>System Pipeline</h3>
           <Figure
