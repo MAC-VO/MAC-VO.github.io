@@ -152,7 +152,7 @@ export default function HomePage() {
           </p>
         </div>
         <div className="mx-auto overflow-x-auto flex flex-row flex-nowrap snap-x snap-mandatory pb-4">
-          <div className='min-w-16'></div>
+          <div className='min-w-[20vw]'></div>
           <div className="snap-center flex-shrink-0 mx-2 border-gray-400 p-2 border-2 rounded-xl">
             <p className='my-2 text-lg'>[1/4] TartanAir v2 - Abandoned School P001</p>
             <video controls autoPlay className='rounded-xl max-h-96 max-w-[80vw]'>
@@ -177,17 +177,17 @@ export default function HomePage() {
               <source type="video/mp4" src="/video/TartanAirv2_Test_E003.mp4" />
             </video>
           </div>
-          <div className='min-w-16'></div>
+          <div className='min-w-[20vw]'></div>
         </div>
-        <div className='layout pb-12'>
+        <div className='layout pb-4'>
           <h3 className='mt-12 mb-4'>MAC-VO In the Wild</h3>
 
           <p className='py-4'>
             We collected some real-world trajectory data and run them with MAC-VO. The following video is one of the result showing MAC-VO running with Zed-X Camera at the <UnderlineLink href="https://www.google.com/maps/place/Pittsburgh+Police+%26+Fire+Training+Academy/data=!4m2!3m1!1s0x0:0xd2ce6da23de1b531?sa=X&ved=1t:2428&ictx=111">Fire Academy</UnderlineLink> in Pittsburgh, PA.
           </p>
         </div>
-        <div className="mx-auto overflow-x-auto flex flex-row flex-nowrap snap-x snap-mandatory pb-4">
-          <div className='min-w-16'></div>
+        <div className="mx-auto overflow-x-auto flex flex-row flex-nowrap snap-x snap-mandatory pb-12">
+          <div className='min-w-[20vw]'></div>
           <div className="snap-center flex-shrink-0 mx-2 border-gray-400 p-2 border-2 rounded-xl">
             <p className='my-2 text-lg'>[1/2] MAC-VO Localization</p>
             <video controls className='rounded-xl max-h-96 max-w-[80vw]'>
@@ -200,7 +200,7 @@ export default function HomePage() {
               <source type="video/mp4" src="/video/Zed_FireAcademy.mp4" />
             </video>
           </div>
-          <div className='min-w-16'></div>
+          <div className='min-w-[20vw]'></div>
         </div>
       </section>
 
