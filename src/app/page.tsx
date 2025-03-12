@@ -44,8 +44,8 @@ export default function HomePage() {
             <span className={hlTextColor}>V</span>isual {" "}
             <span className={hlTextColor}>O</span>dometry</h1>
           <div className='container py-6'>
-            <span className='text-lg font-semibold'>
-              Yuheng Qiu*, Yutian Chen*, Zihao Zhang, Wenshan Wang, Sebastian Scherer<br />
+            <span className='text-lg'>
+              <UnderlineLink href="https://haleqiu.github.io/">Yuheng Qiu</UnderlineLink>*, <UnderlineLink href="https://www.yutianchen.blog/">Yutian Chen</UnderlineLink>*, Zihao Zhang, <UnderlineLink href="http://www.wangwenshan.com/">Wenshan Wang</UnderlineLink>, <UnderlineLink href="https://www.ri.cmu.edu/ri-faculty/sebastian-scherer/">Sebastian Scherer</UnderlineLink><br />
             </span>
             <span className='text-lg'>
               Carnegie Mellon University
@@ -236,9 +236,9 @@ export default function HomePage() {
 
       <section className={clsx(bgColor, textColor)}>
         <div className='layout py-12'>
-          <h2 className='pt-4 pb-2'>Explainer Video</h2>
-          <video controls className='rounded-xl mb-8'>
-            <source type="video/mp4" src="/video/MACVO.mp4" />
+          <h2 className='pt-4 pb-2'>Intro Video</h2>
+          <video controls muted autoPlay className='rounded-xl mb-8'>
+            <source type="video/mp4" src="/video/MACVO-ShortIntro.mp4" />
           </video>
           <h2 className='pb-4'>Methods</h2>
           <h3 className='pt-4'>System Pipeline</h3>
