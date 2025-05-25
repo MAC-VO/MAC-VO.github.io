@@ -8,14 +8,15 @@ import { UnstyledLinkProps } from '@/components/links/UnstyledLink';
 type ArrowLinkProps<C extends React.ElementType> = {
   as?: C;
   direction?: 'left' | 'right';
-} & UnstyledLinkProps &
-  React.ComponentProps<C>;
+  icon?: React.ReactNode;
+} & UnstyledLinkProps & React.ComponentProps<C>;
 
 export default function ArrowLink<C extends React.ElementType>({
   children,
   className,
   direction = 'right',
   as,
+  icon = null,
   ...rest
 }: ArrowLinkProps<C>) {
   const Component = as || UnderlineLink;
@@ -29,6 +30,7 @@ export default function ArrowLink<C extends React.ElementType>({
         className
       )}
     >
+      {icon}
       <span>{children}</span>
       <svg
         viewBox='0 0 16 16'

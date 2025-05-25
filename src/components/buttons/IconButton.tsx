@@ -64,14 +64,14 @@ const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
               'border-primary-500 border',
               'hover:bg-primary-50 active:bg-primary-100 disabled:bg-primary-100',
               isDarkBg &&
-                'hover:bg-gray-900 active:bg-gray-800 disabled:bg-gray-800',
+              'hover:bg-gray-900 active:bg-gray-800 disabled:bg-gray-800',
             ],
             variant === 'ghost' && [
               'text-primary-500',
               'shadow-none',
               'hover:bg-primary-50 active:bg-primary-100 disabled:bg-primary-100',
               isDarkBg &&
-                'hover:bg-gray-900 active:bg-gray-800 disabled:bg-gray-800',
+              'hover:bg-gray-900 active:bg-gray-800 disabled:bg-gray-800',
             ],
             variant === 'light' && [
               'bg-white text-gray-700',
@@ -88,7 +88,7 @@ const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
           //#endregion  //*======== Variants ===========
           'disabled:cursor-not-allowed',
           isLoading &&
-            'relative text-transparent transition-none hover:text-transparent disabled:cursor-wait',
+          'relative text-transparent transition-none hover:text-transparent disabled:cursor-wait',
           className
         )}
         {...rest}
@@ -108,6 +108,7 @@ const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
           </div>
         )}
         {Icon && <Icon size='1em' className={cn(classNames?.icon)} />}
+        {rest.content ? rest.content : null}
       </button>
     );
   }
