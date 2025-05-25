@@ -143,7 +143,7 @@ export default function HomePage() {
           <h3 className='mt-12 mb-4'>MAC-VO at ICRA 2025</h3>
         </div>
         <div className="wide-layout grid grid-cols-1 lg:grid-cols-12 gap-2 items-stretch pb-12">
-          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-6">
+          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 lg:col-span-6 col-span-1">
             <p className='p-2 lg:text-lg rounded-t-xl '>ICRA Registration Lobby</p>
             <div className='flex-grow' />
             <video controls autoPlay loop muted className='rounded-xl mx-auto'>
@@ -151,7 +151,7 @@ export default function HomePage() {
             </video>
             <div className='flex-grow' />
           </div>
-          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-6">
+          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 lg:col-span-6 col-span-1">
             <p className='p-2 lg:text-lg rounded-t-xl '>Main Floor <span className='p-1 rounded-lg bg-primary-900 font-light text-primary-500'>Dynamic Scene</span></p>
             <div className='flex-grow' />
             <video controls autoPlay loop muted className='rounded-xl mx-auto'>
@@ -159,9 +159,7 @@ export default function HomePage() {
             </video>
             <div className='flex-grow' />
           </div>
-          {/* <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-500 col-span-2"></div> */}
-          {/* <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-500 col-span-1"></div> */}
-          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-5">
+          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 lg:col-span-5 col-span-1">
             <p className='p-2 lg:text-lg rounded-t-xl '>Presentation Room</p>
             <div className='flex-grow' />
             <video controls autoPlay loop muted className='rounded-xl mx-auto'>
@@ -169,34 +167,35 @@ export default function HomePage() {
             </video>
             <div className='flex-grow' />
           </div>
-          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-4">
+          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 lg:col-span-4 col-span-1">
             <div className='flex-grow' />
             <video controls autoPlay loop muted className='rounded-xl mx-auto'>
               <source type="video/mp4" src="/video/ICRA2025_Poster.mp4" />
             </video>
             <div className='flex-grow' />
           </div>
-          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-3">
+          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 lg:col-span-3 col-span-1">
             <div className='flex-grow' />
             <img className='rounded-xl mx-auto' src="/images/Poster.jpg" />
             <div className='flex-grow' />
           </div>
-          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-500 col-span-2" />
-          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-2">
+          <div className={clsx(secondaryBgColor, "rounded-xl flex flex-col flex-nowrap text-white col-span-1")} />
+          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 lg:col-span-2 col-span-1">
             <div className='flex-grow' />
             <img className='rounded-xl mx-auto' src="/images/BastiAndPayload.jpg" />
             <div className='flex-grow' />
           </div>
-          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-4">
+          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 lg:col-span-4 col-span-1">
             <div className='flex-grow' />
             <img className='rounded-xl mx-auto' src="/images/Presentation.jpg" />
             <div className='flex-grow' />
           </div>
-          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 col-span-4">
+          <div className="rounded-xl flex flex-col flex-nowrap text-white bg-neutral-900 lg:col-span-4 col-span-1">
             <div className='flex-grow' />
             <img className='rounded-xl mx-auto' src="/images/MACVODemo.jpg" />
             <div className='flex-grow' />
           </div>
+          <div className={clsx(secondaryBgColor, "rounded-xl flex flex-col flex-nowrap text-white col-span-1")} />
         </div>
 
         <section className={clsx(secondaryBgColor, textColor)}>
@@ -241,7 +240,6 @@ export default function HomePage() {
                   {badge && <span className='p-1 rounded-lg bg-primary-900 font-light text-base text-primary-500'>{badge}</span>}
                 </p>
                 <div className='flex-grow' />
-
                 <video
                   controls
                   loop
@@ -252,7 +250,6 @@ export default function HomePage() {
                 >
                   <source src={src} type={type} />
                 </video>
-
                 <div className='flex-grow' />
               </div>
             ))}
