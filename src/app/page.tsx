@@ -25,29 +25,29 @@ export default function HomePage() {
   const hlBgColor = mode === "dark" ? "bg-primary-500" : "bg-primary-600";
 
   // Tabbed datasets
-  const datasets: Record<string, Array<{ title: string; src: string; badge?: string; className: string }>> = {
+  const datasets: Record<string, Array<{ title: string; src: string; type: string; badge?: string; className: string }>> = {
     Zed: [
-      { title: 'Zed X Fire Academy 2', src: '/video/Zed_FireAcademy2.mp4', className: 'col-span-6' },
-      { title: 'Zed X Fire Academy 1', src: '/video/Zed_FireAcademy.mp4', className: 'col-span-6' },
-      { title: 'AirLab Office', src: '/video/AirLab_Scan.webm', className: 'col-span-5' },
-      { title: 'AirLab Workbench', src: '/video/AirLab_Workbench.webm', className: 'col-span-7' },
+      { title: 'Zed X Fire Academy 2', src: '/video/Zed_FireAcademy2.mp4', className: 'col-span-6', type: 'video/mp4' },
+      { title: 'Zed X Fire Academy 1', src: '/video/Zed_FireAcademy.mp4', className: 'col-span-6', type: 'video/mp4' },
+      { title: 'AirLab Office', src: '/video/AirLab_Scan.webm', className: 'col-span-5', type: 'video/webm' },
+      { title: 'AirLab Workbench', src: '/video/AirLab_Workbench.webm', className: 'col-span-7', type: 'video/webm' },
     ],
     VBR: [
-      { title: 'VBR Diag Train 0', src: '/video/VBR_Diag_Train0.mp4', className: 'col-span-7' },
-      { title: 'VBR Spagna Test 0', src: '/video/VBR_Spagna_Test0.mp4', badge: 'Dynamic Scene', className: 'col-span-5' },
-      { title: 'VBR Spagna Test 0 (2)', src: '/video/VBR_Spagna_Test0_2.mp4', badge: 'Dynamic Scene', className: 'col-span-5' },
-      { title: 'VBR Colosseo Train 0', src: '/video/VBR_Colosseo_Train0.mp4', badge: 'Extreme Exposure', className: 'col-span-7' },
+      { title: 'VBR Diag Train 0', src: '/video/VBR_Diag_Train0.mp4', className: 'col-span-7', type: 'video/mp4' },
+      { title: 'VBR Spagna Test 0', src: '/video/VBR_Spagna_Test0.mp4', badge: 'Dynamic Scene', className: 'col-span-5', type: 'video/mp4' },
+      { title: 'VBR Spagna Test 0 (2)', src: '/video/VBR_Spagna_Test0_2.mp4', badge: 'Dynamic Scene', className: 'col-span-5', type: 'video/mp4' },
+      { title: 'VBR Colosseo Train 0', src: '/video/VBR_Colosseo_Train0.mp4', badge: 'Extreme Exposure', className: 'col-span-7', type: 'video/mp4' },
     ],
     'TartanAir v2': [
-      { title: 'TartanAir v2 – Abandon School 1', src: '/video/TartanAirv2_AbandonedSchoolP001.mp4', className: 'col-span-5' },
-      { title: 'TartanAir v2 Test (Easy) 3', src: '/video/TartanAirv2_Test_E003.mp4', className: 'col-span-7' },
+      { title: 'TartanAir v2 – Abandon School 1', src: '/video/TartanAirv2_AbandonedSchoolP001.mp4', className: 'col-span-5', type: 'video/mp4' },
+      { title: 'TartanAir v2 Test (Easy) 3', src: '/video/TartanAirv2_Test_E003.mp4', className: 'col-span-7', type: 'video/mp4' },
     ],
     TartanAir: [
-      { title: 'TartanAir – Abandon Factory 1', src: '/video/TartanAir_AbandonedFactory_P001.mp4', className: 'col-span-5' },
-      { title: 'TartanAir – House 1', src: '/video/TartanAir_HouseP001.mp4', className: 'col-span-7' },
+      { title: 'TartanAir – Abandon Factory 1', src: '/video/TartanAir_AbandonedFactory_P001.mp4', className: 'col-span-5', type: 'video/mp4' },
+      { title: 'TartanAir – House 1', src: '/video/TartanAir_HouseP001.mp4', className: 'col-span-7', type: 'video/mp4' },
     ],
     EuRoC: [
-      { title: 'EuRoC V102', src: '/video/EuRoC_V102.mp4', className: 'col-span-7' },
+      { title: 'EuRoC V102', src: '/video/EuRoC_V102.mp4', className: 'col-span-7', type: 'video/mp4' },
     ],
   };
 
@@ -228,7 +228,7 @@ export default function HomePage() {
 
           {/* Video Grid for the active tab */}
           <div className="wide-layout grid grid-cols-1 lg:grid-cols-12 gap-2 items-stretch pb-12">
-            {datasets[activeTab].map(({ title, src, badge, className }) => (
+            {datasets[activeTab].map(({ title, src, badge, className, type }) => (
               <div
                 key={src}
                 className={clsx(
@@ -250,7 +250,7 @@ export default function HomePage() {
                   preload="lazy"
                   className='rounded-xl mx-auto'
                 >
-                  <source src={src} type="video/mp4" />
+                  <source src={src} type={type} />
                 </video>
 
                 <div className='flex-grow' />
