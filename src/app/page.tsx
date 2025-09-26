@@ -24,6 +24,15 @@ export default function HomePage() {
   const hl2TextColor = mode === "dark" ? "text-red-600" : "text-red-700";
   const hlBgColor = mode === "dark" ? "bg-primary-500" : "bg-primary-600";
 
+  const citation_bibtex = `@inproceedings{qiu2025mac,
+    title={MAC-VO: Metrics-Aware Covariance for Learning-Based Stereo Visual Odometry},
+    author={Qiu, Yuheng and Chen, Yutian and Zhang, Zihao and Wang, Wenshan and Scherer, Sebastian},
+    booktitle={2025 IEEE International Conference on Robotics and Automation (ICRA)},
+    pages={3803--3814},
+    year={2025},
+    organization={IEEE}
+  }`;
+
   // Tabbed datasets
   const datasets: Record<string, Array<{ title: string; src: string; type: string; badge?: string; className: string }>> = {
     Zed: [
@@ -307,6 +316,14 @@ export default function HomePage() {
             isDark={mode === "dark"}
             idx={2}
           />
+        </div>
+      </section>
+      <section className={clsx(secondaryBgColor, textColor)}>
+        <div className='layout pt-4 pb-48'>
+          <h2 className='mt-12 mb-4'>Citation</h2>
+          <pre className='ml-12'>
+            {citation_bibtex}
+          </pre>
         </div>
       </section>
     </main >
